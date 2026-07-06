@@ -61,6 +61,33 @@ This produces:
 
 FRAMES and Seal-0 still need static-page/Wikipedia materialization to run through the local document-ID harness.
 
+## Bootstrap SFT corpus now running
+
+The keyless first-stage training-data pipeline is operational:
+
+```bash
+PYTHONPATH=src python3 -m golden_retriever.context1_bootstrap \
+  --benchmark-root data/benchmarks/materialized \
+  --output-root data/sft/context1-bootstrap-v1 \
+  --max-chars-per-doc 1200 \
+  --train-fraction 0.9
+```
+
+Current output:
+
+| Split | Examples |
+|---|---:|
+| train | 6,891 |
+| eval | 766 |
+| total | 7,657 |
+
+Source suites:
+
+- LongSeal: 252 examples;
+- HotpotQA: 7,405 examples.
+
+This first corpus is `gold_label_bootstrap`: it uses official benchmark labels to create supervised evidence-selection examples with thinking targets, without Anthropic/OpenAI API keys. Codex CLI teacher trajectories are the next augmentation layer.
+
 ## Next implementation change
 
 Replace the upstream API-key teacher calls with a Codex-backed teacher rollout layer:

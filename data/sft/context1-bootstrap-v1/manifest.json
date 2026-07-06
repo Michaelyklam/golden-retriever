@@ -1,0 +1,27 @@
+{
+  "output_root": "data/sft/context1-bootstrap-v1",
+  "train_path": "data/sft/context1-bootstrap-v1/train.jsonl",
+  "eval_path": "data/sft/context1-bootstrap-v1/eval.jsonl",
+  "manifest_path": "data/sft/context1-bootstrap-v1/manifest.json",
+  "suites": [
+    {
+      "suite": "longseal",
+      "tasks": 252,
+      "examples": 252,
+      "corpus_root": "data/benchmarks/materialized/longseal/corpus"
+    },
+    {
+      "suite": "hotpotqa",
+      "tasks": 7405,
+      "examples": 7405,
+      "corpus_root": "data/benchmarks/materialized/hotpotqa/corpus"
+    }
+  ],
+  "examples_total": 7657,
+  "examples_train": 6891,
+  "examples_eval": 766,
+  "include_thinking": true,
+  "max_chars_per_doc": 1200,
+  "teacher": "gold_label_bootstrap",
+  "note": "Keyless first-stage corpus. No Anthropic/OpenAI API keys. Codex CLI teacher trajectories are the next augmentation layer."
+}

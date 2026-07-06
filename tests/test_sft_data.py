@@ -78,6 +78,20 @@ def test_build_sft_examples_can_use_task_candidate_prompt_scope(tmp_path: Path):
     assert "unused.md" not in prompt
 
 
+def test_build_sft_examples_can_cap_document_chars(tmp_path: Path):
+    corpus = tmp_path / "corpus"
+    corpus.mkdir()
+    (corpus / "docs").mkdir()
+    (corpus / "docs" / "search.md").write_text("A" * 200, encoding="utf-8")
+    (corpus / "docs" / "grep.md").write_text("B" * 200, encoding="utf-8")
+
+    examples = build_sft_examples([_task()], corpus, prompt_scope="task-candidates", max_chars_per_doc=20)
+
+    prompt = examples[0]["messages"][1]["content"]
+    assert "A" * 20 in prompt
+    assert "A" * 21 not in prompt
+
+
 def test_build_sft_examples_matches_eval_prompt_shape(tmp_path: Path):
     corpus = tmp_path / "corpus"
     corpus.mkdir()

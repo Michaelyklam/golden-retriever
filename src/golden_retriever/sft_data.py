@@ -49,11 +49,11 @@ def render_gold_completion(task: RetrievalTask, include_thinking: bool = False) 
     return completion
 
 
-def _render_prompt(task: RetrievalTask, corpus_root: str | Path, prompt_scope: str) -> str:
+def _render_prompt(task: RetrievalTask, corpus_root: str | Path, prompt_scope: str, max_chars_per_doc: int = 6000) -> str:
     if prompt_scope == "full-corpus":
-        return render_corpus_prompt(task, corpus_root)
+        return render_corpus_prompt(task, corpus_root, max_chars_per_doc=max_chars_per_doc)
     if prompt_scope == "task-candidates":
-        return render_task_candidate_prompt(task, corpus_root)
+        return render_task_candidate_prompt(task, corpus_root, max_chars_per_doc=max_chars_per_doc)
     raise ValueError(f"Unsupported prompt scope: {prompt_scope}")
 
 
@@ -62,6 +62,7 @@ def build_sft_examples(
     corpus_root: str | Path,
     include_thinking: bool = False,
     prompt_scope: str = "full-corpus",
+    max_chars_per_doc: int = 6000,
 ) -> list[dict[str, Any]]:
     """Build chat-format SFT examples from retrieval tasks.
 
@@ -77,7 +78,7 @@ def build_sft_examples(
                 "task_id": task.task_id,
                 "messages": [
                     {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": _render_prompt(task, corpus_root, prompt_scope)},
+                    {"role": "user", "content": _render_prompt(task, corpus_root, prompt_scope, max_chars_per_doc=max_chars_per_doc)},
                     {"role": "assistant", "content": render_gold_completion(task, include_thinking=include_thinking)},
                 ],
             }
@@ -101,6 +102,7 @@ def main() -> None:
     parser.add_argument("--limit", type=int)
     parser.add_argument("--include-thinking", action="store_true")
     parser.add_argument("--prompt-scope", choices=["full-corpus", "task-candidates"], default="full-corpus")
+    parser.add_argument("--max-chars-per-doc", type=int, default=6000)
     args = parser.parse_args()
 
     tasks = load_jsonl(args.dataset)
@@ -111,6 +113,7 @@ def main() -> None:
         args.corpus_root,
         include_thinking=args.include_thinking,
         prompt_scope=args.prompt_scope,
+        max_chars_per_doc=args.max_chars_per_doc,
     )
     write_sft_jsonl(examples, args.output)
     print(json.dumps({"examples": len(examples), "output": args.output}, indent=2))
