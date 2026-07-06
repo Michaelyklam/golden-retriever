@@ -7,7 +7,7 @@ This log records model/dataset/harness checkpoints. Every row should correspond 
 | 2026-07-06 | scaffold-v0 | `6bd092a` | MiniCPM5-1B base | none | speed only | — | — | — | — | — | vLLM BF16 on RTX 5060 Ti: ~196.6 single-request output tok/s; ~6,414.5 batched output tok/s. |
 | 2026-07-06 | data-pipeline-v0 | `c3672ec` | MiniCPM5-1B base | seed JSONL schema | schema/unit tests | — | — | — | — | — | Context-1 data pipeline distilled into local schema + validation target. |
 | 2026-07-06 | base-closed-corpus-v0 | `7e071c9` | MiniCPM5-1B base | `data/base_smoke/tasks.jsonl` | closed-corpus selection | 1.00 | 1.00 | 0.722 | 0.762 | n/a | First base checkpoint. Recall is good on tiny corpus; output precision/discipline is the immediate failure mode. |
-| 2026-07-06 | localdocs-v0 | `b939275` | MiniCPM5-1B base | `data/generated/localdocs-v0/tasks.jsonl` | generated closed-corpus selection | 0.083 | 0.083 | 0.028 | 0.042 | n/a | First generated dataset. Base model often identifies targets in reasoning but fails final tag emission/document-id fidelity. |
+| 2026-07-06 | localdocs-v0 | `2dde61b` | MiniCPM5-1B base | `data/generated/localdocs-v0/tasks.jsonl` | generated closed-corpus selection | 0.083 | 0.083 | 0.028 | 0.042 | n/a | First generated dataset. Base model often identifies targets in reasoning but fails final tag emission/document-id fidelity. |
 
 ## Decision rule
 
