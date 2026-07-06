@@ -1,0 +1,28 @@
+[project]
+name = "golden-retriever"
+version = "0.1.0"
+description = "Small-model agentic retrieval harness inspired by Context-1, targeting MiniCPM5-1B and Pi integration."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Michael Lam" }]
+dependencies = [
+  "pydantic>=2.0",
+  "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+golden-retriever = "golden_retriever.harness:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
