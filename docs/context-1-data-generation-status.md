@@ -1,31 +1,52 @@
 # Context-1 data generation status
 
-Chroma's public `context-1-data-gen` repository is set up as the recipe for the first full fine-tuning corpus, but actually generating the corpus requires external API credentials and a ChromaDB Cloud database.
+Michael's chosen path: **do not use Anthropic API keys and do not use OpenAI API keys** for the teacher/model-generation layer. Use the **OpenAI Codex subscription/OAuth flow via Codex CLI** instead.
 
-## Required credentials by domain
+Chroma's public `context-1-data-gen` repository remains the recipe/reference for domain structure and task-generation logic, but the upstream implementation assumes API-key based Anthropic/OpenAI/Chroma Cloud services. `golden-retriever` will adapt the recipe into a local/Codex-backed pipeline rather than requiring those keys.
 
-| Domain | Required environment |
+## Provider modes
+
+Run the status helper:
+
+```bash
+PYTHONPATH=src python3 -m golden_retriever.context1_data_gen --provider codex-cli
+```
+
+This is now the default. It checks:
+
+- whether the `codex` CLI is installed;
+- whether Codex OAuth/subscription auth exists under `~/.codex/auth.json` or Hermes auth exists under `~/.hermes/auth.json`;
+- whether any remaining non-LLM domain prerequisites are required by the selected materializer.
+
+For comparison only, the upstream Chroma requirements can still be printed with:
+
+```bash
+PYTHONPATH=src python3 -m golden_retriever.context1_data_gen --provider upstream
+```
+
+## Upstream Chroma credential assumptions, not our default
+
+| Domain | Upstream required environment |
 |---|---|
 | web | `ANTHROPIC_API_KEY`, `SERPER_API_KEY`, `JINA_API_KEY`, `OPENAI_API_KEY`, `CHROMA_API_KEY`, `CHROMA_DATABASE` |
 | SEC / finance | `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `CHROMA_API_KEY`, `CHROMA_DATABASE`, `BASETEN_API_KEY` |
 | patents / legal | `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `CHROMA_API_KEY`, `CHROMA_DATABASE`, `USPTO_API_KEY`, `SEARCH_API_KEY`, `DATALAB_API_KEY` |
 | Epstein email | `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `CHROMA_API_KEY`, `CHROMA_DATABASE` |
 
-Run:
+Those are documented so we understand Chroma's original pipeline, but they are **not** the target path for this project.
 
-```bash
-PYTHONPATH=src python3 -m golden_retriever.context1_data_gen
-```
+## Current local status
 
-The command prints missing credentials plus the exact upstream dry-run commands. No paid API calls are made by the status helper.
+As of 2026-07-06:
 
-## Current status
+- Codex CLI has been installed with `npm install -g @openai/codex`.
+- Codex/Hermes auth files exist locally.
+- `golden-retriever` status now reports `codex-cli` as the LLM provider path.
+- The Codex path reports no Anthropic/OpenAI API-key requirement.
 
-On 2026-07-06, none of the required data-generation credentials were present in the local shell, project `.env`, upstream repo `.env`, or Hermes `.env`. That blocks true Context-1 training-data generation for now.
+## What is already prepared without API-key teacher generation
 
-## What is already prepared without credentials
-
-The benchmark setup can still materialize public benchmark corpora/manifests from Hugging Face:
+The benchmark setup can materialize public benchmark corpora/manifests from Hugging Face:
 
 ```bash
 PYTHONPATH=src python3 -m golden_retriever.benchmark_prepare --suite all --output-root data/benchmarks/materialized
@@ -38,4 +59,14 @@ This produces:
 - FRAMES: 824 URL-positive tasks;
 - Seal-0: 111 URL-positive tasks.
 
-FRAMES and Seal-0 still need browsing/Wikipedia/static-page materialization to run through the local document-ID harness.
+FRAMES and Seal-0 still need static-page/Wikipedia materialization to run through the local document-ID harness.
+
+## Next implementation change
+
+Replace the upstream API-key teacher calls with a Codex-backed teacher rollout layer:
+
+```text
+Benchmark/Context-1 task → Pi-compatible tool loop → Codex CLI teacher action proposal → trajectory JSONL → SFT data
+```
+
+This keeps the Context-1 recipe shape while avoiding Anthropic/OpenAI API keys.

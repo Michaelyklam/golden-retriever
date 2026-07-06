@@ -42,28 +42,27 @@ These are **smoke** scores on the first 10 LongSeal tasks, not final full-suite 
 
 Interpretation: the Lap 4 adapter is directionally better than base on the LongSeal smoke slice, but this is not parity evidence until full LongSeal runs complete and FRAMES/Seal-0/HotpotQA/BrowseComp+ are runnable through equivalent harnesses.
 
-## Data-generation blocker
+## Data-generation path update
 
-The actual Chroma `context-1-data-gen` corpus generation cannot run in this environment yet because none of the required credentials are present:
+Michael does **not** want to use an Anthropic API key, and does **not** want to use an OpenAI API key for teacher generation. The project path is now:
 
-- `ANTHROPIC_API_KEY`
-- `OPENAI_API_KEY`
-- `SERPER_API_KEY`
-- `JINA_API_KEY`
-- `CHROMA_API_KEY`
-- `CHROMA_DATABASE`
-- `BASETEN_API_KEY`
-- `USPTO_API_KEY`
-- `SEARCH_API_KEY`
-- `DATALAB_API_KEY`
-
-The helper below now reports per-domain missing credentials and exact upstream dry-run commands:
-
-```bash
-PYTHONPATH=src python3 -m golden_retriever.context1_data_gen
+```text
+OpenAI Codex subscription/OAuth via Codex CLI
 ```
 
-No paid calls are made by the helper.
+instead of upstream Chroma's Anthropic/OpenAI API-key based teacher calls.
+
+The helper below now defaults to that project path:
+
+```bash
+PYTHONPATH=src python3 -m golden_retriever.context1_data_gen --provider codex-cli
+```
+
+It reports Codex CLI/auth readiness and intentionally does not require `ANTHROPIC_API_KEY` or `OPENAI_API_KEY`. The upstream Chroma requirements are still available for reference only:
+
+```bash
+PYTHONPATH=src python3 -m golden_retriever.context1_data_gen --provider upstream
+```
 
 ## Execution guard blocker
 
@@ -82,4 +81,4 @@ The terminal safety guard blocked that background command before it started, rep
 2. Add web/static-page materialization for Seal-0, or mark it unavailable without browsing credentials.
 3. Add BrowseComp+ downloader with explicit disk/runtime budget and shard-level resumability.
 4. Run full LongSeal/HotpotQA in a foreground or approved long-running job.
-5. Once credentials exist, run `context-1-data-gen` to produce the first true full fine-tuning corpus.
+5. Implement Codex-backed teacher rollouts for the first full fine-tuning corpus without Anthropic/OpenAI API keys.
