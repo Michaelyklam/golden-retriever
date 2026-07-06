@@ -1,0 +1,7 @@
+{
+  "name": "chroma-core/context-1-data-gen",
+  "url": "https://github.com/chroma-core/context-1-data-gen",
+  "pinned_commit": "0685d48a2bb864972f5968a4d30fd44a47c3b554",
+  "retrieved_at": "2026-07-06",
+  "notes": "Used as recipe/reference for Context-1-compatible data generation; not vendored wholesale."
+}

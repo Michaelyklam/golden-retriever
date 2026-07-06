@@ -140,5 +140,8 @@ Re-run the MiniCPM5-1B benchmark:
 ## References
 
 - Chroma Context-1 technical report: https://www.trychroma.com/research/context-1
+- Context-1 source inventory: [`docs/context-1-source-inventory.md`](docs/context-1-source-inventory.md)
+- Pi harness extension plan: [`docs/pi-harness-extension.md`](docs/pi-harness-extension.md)
+- Full-scale parity implementation plan: [`docs/plans/2026-07-06-context-1-full-scale-parity.md`](docs/plans/2026-07-06-context-1-full-scale-parity.md)
 - Pi agent harness: https://pi.dev/
 - MiniCPM5-1B: https://huggingface.co/openbmb/MiniCPM5-1B

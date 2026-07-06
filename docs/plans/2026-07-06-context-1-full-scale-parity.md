@@ -4,7 +4,7 @@
 
 **Goal:** Replace toy local proxy experiments with a reproducible Context-1-style full-scale training/evaluation pipeline using Chroma's technical report and public `context-1-data-gen` repo as the recipe, then report scores on comparable benchmark suites before making any parity claims.
 
-**Architecture:** Build a compatible observe → infer → act retrieval-agent harness with the Context-1 tool surface (`search_corpus`, `grep_corpus`, `read_document`, `prune_chunks`), convert public Chroma data-generation outputs into `golden-retriever` datasets, generate/collect SFT trajectories from stronger teacher rollouts, then train MiniCPM adapters and evaluate against full benchmark adapters. Keep benchmark adapters separate from training data adapters so reported scores are reproducible and not contaminated by training traces.
+**Architecture:** Use the Pi harness as the base orchestration/integration surface, then extend it with a compatible observe → infer → act retrieval-agent layer using the Context-1 tool surface (`search_corpus`, `grep_corpus`, `read_document`, `prune_chunks`). Convert public Chroma data-generation outputs into `golden-retriever` datasets, generate/collect SFT trajectories from stronger teacher rollouts through the same Pi-compatible harness, then train MiniCPM adapters and evaluate against full benchmark adapters. Keep benchmark adapters separate from training data adapters so reported scores are reproducible and not contaminated by training traces.
 
 **Tech Stack:** Python 3.12, `pytest`, Pydantic schemas, local BM25/regex search first, optional dense embeddings/ChromaDB later, Hugging Face Transformers/PEFT LoRA for MiniCPM, optional TRL/Atropos-style RLVR later, external `chroma-core/context-1-data-gen` pinned by commit.
 
@@ -21,6 +21,7 @@
 ## Source references
 
 - `docs/context-1-source-inventory.md`
+- `docs/pi-harness-extension.md`
 - Chroma Context-1 report: https://www.trychroma.com/research/context-1
 - Chroma data generation repo: https://github.com/chroma-core/context-1-data-gen
 - Context-1 model card: https://huggingface.co/chromadb/context-1

@@ -43,6 +43,46 @@ class RetrievalTask(BaseModel):
         return self
 
 
+BenchmarkSuite = Literal[
+    "generated",
+    "browsecomp_plus",
+    "seal0",
+    "longseal",
+    "frames",
+    "hotpotqa",
+    "hle",
+]
+
+
+class BenchmarkDocument(BaseModel):
+    """A document or chunk exposed to a full-scale benchmark harness."""
+
+    doc_id: str
+    text: str
+    url: str | None = None
+    title: str | None = None
+    metadata: dict[str, Any] = Field(default_factory=dict)
+
+
+class BenchmarkTask(BaseModel):
+    """One task from a comparable Context-1-style benchmark suite."""
+
+    task_id: str
+    suite: BenchmarkSuite
+    question: str
+    answer: str | None = None
+    positive_doc_ids: list[str] = Field(default_factory=list)
+    positive_urls: list[str] = Field(default_factory=list)
+    corpus_path: str | None = None
+    metadata: dict[str, Any] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def scored_suites_have_positive_targets(self) -> "BenchmarkTask":
+        if self.suite != "hle" and not self.positive_doc_ids and not self.positive_urls:
+            raise ValueError("BenchmarkTask requires positive_doc_ids or positive_urls for scored retrieval suites")
+        return self
+
+
 def normalize_text(text: str) -> str:
     return re.sub(r"\s+", " ", text.casefold()).strip()
 
