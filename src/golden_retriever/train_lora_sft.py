@@ -47,11 +47,12 @@ def pad_batch(features: list[dict[str, list[int]]], pad_token_id: int) -> dict[s
     return {"input_ids": input_ids, "attention_mask": attention_mask, "labels": labels}
 
 
-def tokenize_example(example: dict[str, Any], tokenizer: Any, max_length: int) -> dict[str, list[int]]:
+def tokenize_example(example: dict[str, Any], tokenizer: Any, max_length: int, enable_thinking: bool | None = None) -> dict[str, list[int]]:
     messages = example["messages"]
     prompt_messages = messages[:-1]
+    template_kwargs = {"enable_thinking": enable_thinking} if enable_thinking is not None else {}
     full_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=False)
-    prompt_text = tokenizer.apply_chat_template(prompt_messages, tokenize=False, add_generation_prompt=True)
+    prompt_text = tokenizer.apply_chat_template(prompt_messages, tokenize=False, add_generation_prompt=True, **template_kwargs)
     full_ids = tokenizer(full_text, add_special_tokens=False).input_ids
     prompt_ids = tokenizer(prompt_text, add_special_tokens=False).input_ids
     if len(full_ids) > max_length:
@@ -92,7 +93,8 @@ def run_training(args: argparse.Namespace) -> dict[str, Any]:
         tokenizer.pad_token = tokenizer.eos_token
 
     examples = load_chat_jsonl(args.train_file)
-    tokenized = [tokenize_example(example, tokenizer, args.max_length) for example in examples]
+    enable_thinking = True if args.enable_thinking else None
+    tokenized = [tokenize_example(example, tokenizer, args.max_length, enable_thinking=enable_thinking) for example in examples]
 
     dtype = torch.bfloat16 if args.dtype == "bfloat16" else torch.float16
     model = AutoModelForCausalLM.from_pretrained(
@@ -164,6 +166,7 @@ def run_training(args: argparse.Namespace) -> dict[str, Any]:
         "max_length": args.max_length,
         "lora_rank": args.lora_rank,
         "lora_alpha": args.lora_alpha,
+        "enable_thinking": args.enable_thinking,
     }
     (output_dir / "training_metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
     print(json.dumps(metrics, indent=2))
@@ -189,6 +192,7 @@ def main() -> None:
     parser.add_argument("--max-grad-norm", type=float, default=1.0)
     parser.add_argument("--log-every", type=int, default=5)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--enable-thinking", action="store_true", help="Align prompt masking with MiniCPM/Qwen thinking generation prompts.")
     parser.add_argument("--no-gradient-checkpointing", action="store_false", dest="gradient_checkpointing")
     parser.set_defaults(gradient_checkpointing=True)
     args = parser.parse_args()

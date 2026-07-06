@@ -43,6 +43,23 @@ This repo is the initial scaffold:
 - benchmark script for MiniCPM5-1B on vLLM;
 - implementation roadmap for Pi integration and data generation.
 
+<!-- metrics-progress:start -->
+## Progression
+
+![Model progression](assets/metrics-progression.svg)
+
+Tracked in [`docs/experiments.md`](docs/experiments.md). The graph currently shows the local closed-corpus benchmark while the Context-1 benchmark adapters are being added.
+
+### Context-1 parity benchmark matrix
+
+| Suite | Status | Notes |
+|---|---|---|
+| Generated legal / patent / web / finance retrieval | planned | Context-1's synthetic-domain training/eval style; local generator is the first miniature version. |
+| Seal-0 / LongSeal | planned | Requires dataset adapter and static-corpus scoring. |
+| FRAMES | planned | Requires Wikipedia/Serper-style retrieval adapter or static snapshot. |
+| BrowseComp-style tasks | planned | Requires reproducible static corpus, not live web drift. |
+<!-- metrics-progress:end -->
+
 ## Quick start
 
 ```bash
@@ -83,7 +100,8 @@ Build chat-format SFT examples:
 golden-retriever-build-sft \
   --dataset data/generated/localdocs-train-v0/tasks.jsonl \
   --corpus-root data/generated/localdocs-v0/corpus \
-  --output data/sft/localdocs-format-lap1/train.jsonl
+  --output data/sft/localdocs-thinking-lap2/train.jsonl \
+  --include-thinking
 ```
 
 Run a minimal LoRA SFT lap from an environment with Torch/Transformers/PEFT installed:
@@ -91,11 +109,12 @@ Run a minimal LoRA SFT lap from an environment with Torch/Transformers/PEFT inst
 ```bash
 golden-retriever-train-lora-sft \
   --model openbmb/MiniCPM5-1B \
-  --train-file data/sft/localdocs-format-lap1/train.jsonl \
-  --output-dir models/minicpm5-1b-localdocs-format-lap1-lora-6144 \
-  --epochs 1 \
-  --max-length 6144 \
-  --target-modules q_proj,v_proj
+  --train-file data/sft/localdocs-thinking-lap2/train.jsonl \
+  --output-dir models/minicpm5-1b-localdocs-thinking-lap2-aligned-lora-8192-e8 \
+  --epochs 8 \
+  --max-length 8192 \
+  --target-modules q_proj,v_proj \
+  --enable-thinking
 ```
 
 Run the current base-model closed-corpus eval, assuming a vLLM server is listening on `:8000`:

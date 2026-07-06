@@ -23,6 +23,7 @@ golden-retriever-model-eval = "golden_retriever.model_eval:main"
 golden-retriever-generate = "golden_retriever.synthetic:main"
 golden-retriever-build-sft = "golden_retriever.sft_data:main"
 golden-retriever-train-lora-sft = "golden_retriever.train_lora_sft:main"
+golden-retriever-progress = "golden_retriever.progress:main"
 
 [build-system]
 requires = ["hatchling"]

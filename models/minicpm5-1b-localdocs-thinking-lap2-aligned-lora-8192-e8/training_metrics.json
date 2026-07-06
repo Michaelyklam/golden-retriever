@@ -1,0 +1,15 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "train_file": "data/sft/localdocs-thinking-lap2/train.jsonl",
+  "output_dir": "models/minicpm5-1b-localdocs-thinking-lap2-aligned-lora-8192-e8",
+  "examples": 51,
+  "epochs": 8,
+  "optimizer_steps": 56,
+  "final_loss": 0.02178681455552578,
+  "mean_loss": 0.4959040422987777,
+  "elapsed_seconds": 521.7142577171326,
+  "max_length": 8192,
+  "lora_rank": 8,
+  "lora_alpha": 16,
+  "enable_thinking": true
+}

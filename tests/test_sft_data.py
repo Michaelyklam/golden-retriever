@@ -42,6 +42,26 @@ def test_render_gold_completion_uses_exact_doc_id_and_quote():
     )
 
 
+def test_render_gold_completion_can_include_short_thinking():
+    completion = render_gold_completion(_task(), include_thinking=True)
+
+    assert completion.startswith("<think>\n")
+    assert "The query asks for evidence matching" in completion
+    assert "docs/search.md" in completion
+    assert "docs/grep.md" in completion
+    assert "</think>\n\n<Document id=\"docs/search.md\">" in completion
+
+
+def test_build_sft_examples_can_include_thinking_targets(tmp_path: Path):
+    corpus = tmp_path / "corpus"
+    corpus.mkdir()
+    (corpus / "search.md").write_text("SearchTool performs hybrid keyword and semantic matching.\n", encoding="utf-8")
+
+    examples = build_sft_examples([_task()], corpus, include_thinking=True)
+
+    assert examples[0]["messages"][2]["content"].startswith("<think>")
+
+
 def test_build_sft_examples_matches_eval_prompt_shape(tmp_path: Path):
     corpus = tmp_path / "corpus"
     corpus.mkdir()

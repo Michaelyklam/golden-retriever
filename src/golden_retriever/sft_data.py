@@ -16,7 +16,23 @@ def _compact_reason(text: str, max_chars: int = 180) -> str:
     return reason[: max_chars - 1].rstrip() + "…"
 
 
-def render_gold_completion(task: RetrievalTask) -> str:
+def render_gold_thinking(task: RetrievalTask) -> str:
+    positive_ids = ", ".join(doc.doc_id for doc in task.supporting_documents)
+    distractor_ids = ", ".join(doc.doc_id for doc in task.distractor_documents[:3]) or "none"
+    primary_quote = task.supporting_documents[0].document_quotes[0] if task.supporting_documents[0].document_quotes else task.answer
+    return "\n".join(
+        [
+            "<think>",
+            f"The query asks for evidence matching: {_compact_reason(primary_quote, 120)}",
+            f"The grounded supporting document id is {positive_ids}.",
+            f"Distractors considered but rejected: {distractor_ids}.",
+            "Return only the supporting document tag, preserving the exact id.",
+            "</think>",
+        ]
+    ) + "\n\n"
+
+
+def render_gold_completion(task: RetrievalTask, include_thinking: bool = False) -> str:
     """Render the supervised target for exact document-id selection."""
 
     tags: list[str] = []
@@ -27,10 +43,13 @@ def render_gold_completion(task: RetrievalTask) -> str:
             f'Contains grounded quote: {_compact_reason(quote)}'
             f'</Justification></Document>'
         )
-    return "\n".join(tags)
+    completion = "\n".join(tags)
+    if include_thinking:
+        return render_gold_thinking(task) + completion
+    return completion
 
 
-def build_sft_examples(tasks: list[RetrievalTask], corpus_root: str | Path) -> list[dict[str, Any]]:
+def build_sft_examples(tasks: list[RetrievalTask], corpus_root: str | Path, include_thinking: bool = False) -> list[dict[str, Any]]:
     """Build chat-format SFT examples from retrieval tasks.
 
     The user prompt is intentionally rendered with the same helper as the eval
@@ -46,7 +65,7 @@ def build_sft_examples(tasks: list[RetrievalTask], corpus_root: str | Path) -> l
                 "messages": [
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": render_corpus_prompt(task, corpus_root)},
-                    {"role": "assistant", "content": render_gold_completion(task)},
+                    {"role": "assistant", "content": render_gold_completion(task, include_thinking=include_thinking)},
                 ],
             }
         )
@@ -67,12 +86,13 @@ def main() -> None:
     parser.add_argument("--corpus-root", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--include-thinking", action="store_true")
     args = parser.parse_args()
 
     tasks = load_jsonl(args.dataset)
     if args.limit is not None:
         tasks = tasks[: args.limit]
-    examples = build_sft_examples(tasks, args.corpus_root)
+    examples = build_sft_examples(tasks, args.corpus_root, include_thinking=args.include_thinking)
     write_sft_jsonl(examples, args.output)
     print(json.dumps({"examples": len(examples), "output": args.output}, indent=2))
 

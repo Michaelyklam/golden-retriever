@@ -1,0 +1,238 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "adapter": "models/minicpm5-1b-localdocs-thinking-lap2-lora-8192",
+  "dataset": "data/generated/localdocs-v0/tasks.jsonl",
+  "corpus_root": "data/generated/localdocs-v0/corpus",
+  "mode": "local_peft_closed_corpus_selection_thinking_enabled",
+  "elapsed_seconds": 63.60183501243591,
+  "summary": {
+    "num_tasks": 12,
+    "final_answer_found": 0.16666666666666666,
+    "recall": 0.16666666666666666,
+    "precision": 0.015151515151515152,
+    "f1": 0.02777777777777778
+  },
+  "results": [
+    {
+      "task_id": "localdocs-000001",
+      "question": "Which document contains evidence for the claim: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.",
+      "answer": "A small-model agentic retrieval lab inspired by Chroma's",
+      "positive_doc_ids": [
+        "README.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The document id is \"README.md\" and \"base_smoke/chaining.md\", \"base_smoke/grep.md\", \"base_smoke/prune.md\", \"base_smoke/read.md\", \"golden-retriever/harness.py\", \"golden-retriever/tools.py\", \"golden-retriever/schemas.py\", \"golden-retriever/traces.py\", \"golden-retriever/model_client.py\", \"golden-retriever/synthetic.py\", \"golden-retriever/eval.py\", \"golden-retriever/swarm.py\", \"golden-retriever/README.md\", \"golden-retriever/harness.py\", \"golden-retriever/tools.py\", \"golden-retriever/schemas.py\", \"golden-retriever/traces.py\", \"golden-retriever/model_client.py\", \"golden-retriever/synthetic.py\", \"golden-retriever/eval.py\", \"golden-retriever/swarm.py\", \"golden-retriever/README.md\", \"golden-retriever/harness.py\", \"golden-retriever/tools.py\", \"golden-retriever/schemas.py\", \"golden-retriever/traces.py\", \"golden-retriever/model_client.py\", \"golden-retriever/synthetic.py\", \"golden-retriever/eval.py\", \"golden-retriever/swarm.py\", \"golden-retriever/README.md\", \"golden-retriever/harness.py\", \"golden-retriever/tools.py\", \"golden-retriever/schemas.py\", \"golden-retriever/traces.py\", \"golden-retriever/model_client.py\", \"golden-retriever/synthetic.py\", \"golden-retriever/eval.py\", \"golden-retriever/swarm.py\", \"golden-retriever/README.md\", \"golden-retriever/harness.py\", \"golden-retriever/tools.py\", \"golden-retriever/schemas.py\", \"golden-retriever/traces.py\", \"golden-retriever/model_client.py\", \"golden-retriever/synthetic.py\", \"golden-retriever/eval.py\", \"golden-retriever/swarm.py\", \"golden-retriever/README.md\", \"golden-retriever/harness.py\", \"golden-retriever/tools.py\", \"golden-retriever/schemas.py\", \"golden-retriever/traces.py\", \"golden-retriever/model_client.py\", \"golden-retriever"
+    },
+    {
+      "task_id": "localdocs-000002",
+      "question": "Which document contains evidence for the claim: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.",
+      "answer": "Synthetic retrieval tasks can be recursively chained by",
+      "positive_doc_ids": [
+        "base_smoke/chaining.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence of the claim: \"Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.\"\n\nThe document id is \"README.md\" and the justification is: \"Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.\"\n\nThe document id is \"base_smoke/chaining.md\" and the justification is: \"Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.\"\n\nThe document id is \"base_smoke/grep.md\" and the justification is: \"GrepTool performs regex text pattern matching over the corpus. It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.\"\n\nThe document id is \"base_smoke/prune.md\" and the justification is: \"PruneChunksTool removes irrelevant chunks from the active context window. It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.\"\n\nThe document id is \"base_smoke/read.md\" and the justification is: \"ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete. It is used to inspect more surrounding context from a known document id.\"\n\nThe document id is \"base_smoke/search.md\" and the justification is: \"SearchTool performs hybrid semantic and keyword search. It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.\"\n\nThe document id is \"base_smoke/verification.md\" and the justification is: \"Verification method to copy: extract verbatim document quotes and match against generated clues; reject distractors that leak final answer.\"\n\nThe document id is \"docs/context-1-notes.md\" and the justification is: \"Source: https://www.trychroma.com/research/context-1; Core idea: Context-1 is a retrieval subagent, not an answer model; retrieves evidence for downstream reasoning model.\"\n\nThe document id is \"docs/data-pipeline.md\" and the justification is: \"Source notes: Context-1 is trained as a retrieval subagent, not an answer model; retrieves evidence for downstream reasoning model; Core idea: Context-1 is a retrieval subagent, not an answer model; retrieves evidence for downstream reasoning model.\"\n\nThe document id is \"docs/experiments.md"
+    },
+    {
+      "task_id": "localdocs-000003",
+      "question": "Which document contains evidence for the claim: It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.",
+      "answer": "It is useful when the retrieval subagent needs",
+      "positive_doc_ids": [
+        "base_smoke/grep.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence of the claim: \"It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.\" The document id is \"README.md\". The document id is \"base_smoke/chaining.md\". The document id is \"base_smoke/grep.md\". The document id is \"base_smoke/prune.md\". The document id is \"base_smoke/read.md\". The document id is \"base_smoke/search.md\". The document id is \"base_smoke/verification.md\". The document id is \"docs/context-1-notes.md\". The document id is \"docs/data-pipeline.md\". The document id is \"docs/experiments.md\". The document id is \"docs/roadmap.md\". The document id is \"docs/finetuning-minicpm5.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/"
+    },
+    {
+      "task_id": "localdocs-000004",
+      "question": "Which document contains evidence for the claim: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.",
+      "answer": "It helps the retrieval subagent free token budget",
+      "positive_doc_ids": [
+        "base_smoke/prune.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence of the claim: \"It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.\" The document id is \"README.md\". The document id is \"base_smoke/chaining.md\". The document id is \"base_smoke/grep.md\". The document id is \"base_smoke/prune.md\". The document id is \"base_smoke/read.md\". The document id is \"base_smoke/search.md\". The document id is \"base_smoke/verification.md\". The document id is \"docs/context-1-notes.md\". The document id is \"docs/data-pipeline.md\". The document id is \"docs/roadmap.md\". The document id is \"docs/experiments.md\". The document id is \"docs/finetuning-minicpm5.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The"
+    },
+    {
+      "task_id": "localdocs-000005",
+      "question": "Which document contains evidence for the claim: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.",
+      "answer": "ReadDocument opens a specific document when a retrieved",
+      "positive_doc_ids": [
+        "base_smoke/read.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence of the claim: \"ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.\" The document id is \"README.md\". The document id is \"base_smoke/chaining.md\". The document id is \"base_smoke/grep.md\". The document id is \"base_smoke/prune.md\". The document id is \"base_smoke/read.md\". The document id is \"base_smoke/search.md\". The document id is \"base_smoke/verification.md\". The document id is \"docs/context-1-notes.md\". The document id is \"docs/data-pipeline.md\". The document id is \"docs/experiments.md\". The document id is \"docs/roadmap.md\". The document id is \"docs/finetuning-minicpm5.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \""
+    },
+    {
+      "task_id": "localdocs-000006",
+      "question": "Which document contains evidence for the claim: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.",
+      "answer": "It combines lexical and embedding retrieval, then returns",
+      "positive_doc_ids": [
+        "base_smoke/search.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence of the claim: \"It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.\" The document id is \"README.md\". The document id is \"base_smoke/chaining.md\". The document id is \"base_smoke/grep.md\". The document id is \"base_smoke/prune.md\". The document id is \"base_smoke/read.md\". The document id is \"base_smoke/search.md\". The document id is \"base_smoke/verification.md\". The document id is \"docs/context-1-notes.md\". The document id is \"docs/data-pipeline.md\". The document id is \"docs/roadmap.md\". The document id is \"docs/experiments.md\". The document id is \"docs/finetuning-minicpm5.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id"
+    },
+    {
+      "task_id": "localdocs-000007",
+      "question": "Which document contains evidence for the claim: A generated task is accepted only when declared document quotes literally appear in the source document.",
+      "answer": "A generated task is accepted only when declared",
+      "positive_doc_ids": [
+        "base_smoke/verification.md"
+      ],
+      "returned_doc_ids": [
+        "README.md",
+        "base_smoke/chaining.md",
+        "base_smoke/grep.md",
+        "base_smoke/prune.md",
+        "base_smoke/read.md",
+        "base_smoke/search.md",
+        "base_smoke/verification.md",
+        "docs/context-1-notes.md",
+        "docs/data-pipeline.md",
+        "docs/experiments.md",
+        "docs/roadmap.md"
+      ],
+      "unknown_doc_ids": [
+        "docs/finetuning-minicpm5.md"
+      ],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.09090909090909091,
+      "f1": 0.16666666666666669,
+      "raw_output": "The query asks for evidence that a generated task is accepted only when declared document quotes literally appear in the source document. The relevant document is the README.md file, which contains the exact quote. The other documents are not relevant to this claim.\n</think>\n\n<Document id=\"README.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/chaining.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"base_smoke/prune.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"base_smoke/read.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"base_smoke/search.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"base_smoke/verification.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/context-1-notes.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/data-pipeline.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/experiments.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/roadmap.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/finetuning-minicpm5.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/finetuning-minicpm5.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/finetuning-minicpm5.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/finetuning-minicpm5.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/finetuning-minicpm5.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/finetuning-minicpm5.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/finetuning-minicpm5.md\"><Justification>Text pattern matching.</Justification></Document>\n<Document id=\"docs/finetuning"
+    },
+    {
+      "task_id": "localdocs-000008",
+      "question": "Which document contains evidence for the claim: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.",
+      "answer": "The agent loop is useful because many real",
+      "positive_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence of the claim: \"The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.\" The document id is \"README.md\". The document id is \"base_smoke/chaining.md\". The document id is \"base_smoke/grep.md\". The document id is \"base_smoke/prune.md\". The document id is \"base_smoke/read.md\". The document id is \"base_smoke/search.md\". The document id is \"base_smoke/verification.md\". The document id is \"docs/context-1-notes.md\". The document id is \"docs/data-pipeline.md\". The document id is \"docs/roadmap.md\". The document id is \"docs/experiments.md\". The document id is \"docs/finetuning-minicpm5.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \""
+    },
+    {
+      "task_id": "localdocs-000009",
+      "question": "Which document contains evidence for the claim: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.",
+      "answer": "This is the working data plan for training",
+      "positive_doc_ids": [
+        "docs/data-pipeline.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence of the claim: \"This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.\" The document id is \"README.md\". The document id is \"base_smoke/chaining.md\". The document id is \"base_smoke/grep.md\". The document id is \"base_smoke/prune.md\". The document id is \"base_smoke/read.md\". The document id is \"golden-retriever\". The document id is \"golden-retriever\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-eval\". The document id is \"golden-retriever-harness\". The document id is \"golden-retriever-verification\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-retriever-validate\". The document id is \"golden-re"
+    },
+    {
+      "task_id": "localdocs-000010",
+      "question": "Which document contains evidence for the claim: Every row should correspond to a committed repo state and, once training starts, a model artifact or adapter path.",
+      "answer": "Every row should correspond to a committed repo",
+      "positive_doc_ids": [
+        "docs/experiments.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence of the claim: \"Every row should correspond to a committed repo state and, once training starts, a model artifact or adapter path.\" The document id is \"README.md\". The document id is \"base_smoke/chaining.md\". The document id is \"base_smoke/grep.md\". The document id is \"base_smoke/prune.md\". The document id is \"base_smoke/read.md\". The document id is \"base_smoke/search.md\". The document id is \"base_smoke/verification.md\". The document id is \"docs/context-1-notes.md\". The document id is \"docs/data-pipeline.md\". The document id is \"docs/roadmap.md\". The document id is \"docs/experiments.md\". The document id is \"docs/finetuning-minicpm5.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README.md\". The document id is \"docs/README"
+    },
+    {
+      "task_id": "localdocs-000011",
+      "question": "Which document contains evidence for the claim: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.",
+      "answer": "> **For Hermes:** Use subagent-driven-development skill to implement",
+      "positive_doc_ids": [
+        "docs/roadmap.md"
+      ],
+      "returned_doc_ids": [
+        "README.md",
+        "base_smoke/chaining.md",
+        "base_smoke/grep.md",
+        "base_smoke/prune.md",
+        "base_smoke/read.md",
+        "base_smoke/search.md",
+        "base_smoke/verification.md",
+        "docs/context-1-notes.md",
+        "docs/data-pipeline.md",
+        "docs/experiments.md",
+        "docs/roadmap.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.09090909090909091,
+      "f1": 0.16666666666666669,
+      "raw_output": "The query asks for evidence of the claim: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.\nThe document id is \"README.md\".\nThe justification is that the claim is in the README, and the document id is \"README.md\".\nThe document id is \"README.md\".\n</think>\n\n<Document id=\"README.md\"><Justification>The claim is explicitly stated in the README, and the document id is \"README.md\".</Justification></Document>\n<Document id=\"base_smoke/chaining.md\"><Justification>The claim is in the README, and the document id is \"base_smoke/chaining.md\".</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>The claim is in the README, and the document id is \"base_smoke/grep.md\".</Justification></Document>\n<Document id=\"base_smoke/prune.md\"><Justification>The claim is in the README, and the document id is \"base_smoke/prune.md\".</Justification></Document>\n<Document id=\"base_smoke/read.md\"><Justification>The claim is in the README, and the document id is \"base_smoke/read.md\".</Justification></Document>\n<Document id=\"base_smoke/search.md\"><Justification>The claim is in the README, and the document id is \"base_smoke/search.md\".</Justification></Document>\n<Document id=\"base_smoke/verification.md\"><Justification>The claim is in the README, and the document id is \"base_smoke/verification.md\".</Justification></Document>\n<Document id=\"docs/context-1-notes.md\"><Justification>The claim is in the README, and the document id is \"docs/context-1-notes.md\".</Justification></Document>\n<Document id=\"docs/data-pipeline.md\"><Justification>The claim is in the README, and the document id is \"docs/data-pipeline.md\".</Justification></Document>\n<Document id=\"docs/experiments.md\"><Justification>The claim is in the README, and the document id is \"docs/experiments.md\".</Justification></Document>\n<Document id=\"docs/roadmap.md\"><Justification>The claim is in the README, and the document id is \"docs/roadmap.md\".</Justification></Document>\n<Document id=\"docs/finetuning-minicpm5"
+    },
+    {
+      "task_id": "localdocs-000012",
+      "question": "Which document contains evidence for the claim: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).",
+      "answer": "Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver",
+      "positive_doc_ids": [
+        "minicpm5-1b-rtx5060ti.md"
+      ],
+      "returned_doc_ids": [
+        "README.md",
+        "base_smoke/chaining.md",
+        "base_smoke/grep.md",
+        "base_smoke/prune.md",
+        "base_smoke/read.md",
+        "base_smoke/search.md",
+        "base_smoke/verification.md",
+        "docs/context-1-notes.md",
+        "docs/data-pipeline.md",
+        "docs/experiments.md",
+        "docs/roadmap.md"
+      ],
+      "unknown_doc_ids": [
+        "docs/finetuning-minicpm5.md",
+        "docs/README.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence of the claim: `Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).` The document id is `README.md`.\n</think>\n\n<Document id=\"README.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/chaining.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>Brief reason.</Justification></Document>\n\n<Document id=\"base_smoke/prune.md\"><Justification>Brief reason.</Justification></Document>\n\n<Document id=\"base_smoke/read.md\"><Justification>Brief reason.</Justification></Document>\n\n<Document id=\"base_smoke/search.md\"><Justification>Brief reason.</Justification></Document>\n\n<Document id=\"base_smoke/verification.md\"><Justification>Brief reason.</Justification></Document>\n\n<Document id=\"base_smoke/chaining.md\"><Justification>Brief reason.</Justification></Document>\n\n<Document id=\"docs/context-1-notes.md\"><Justification>Brief reason.</Justification></Document>\n\n<Document id=\"docs/data-pipeline.md\"><Justification>Brief reason.</Justification></Document>\n\n<Document id=\"docs/experiments.md\"><Justification>Brief reason.</Justification></Document>\n\n<Document id=\"docs/roadmap.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/finetuning-minicpm5.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/README.md\"><Justification>Brief reason.</Justification></Document>"
+    }
+  ]
+}
