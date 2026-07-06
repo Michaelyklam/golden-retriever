@@ -18,6 +18,7 @@ dev = [
 
 [project.scripts]
 golden-retriever = "golden_retriever.harness:main"
+golden-retriever-validate = "golden_retriever.dataset:main"
 
 [build-system]
 requires = ["hatchling"]

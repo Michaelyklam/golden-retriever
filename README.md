@@ -38,6 +38,8 @@ This repo is the initial scaffold:
 - local retrieval tool contracts and a simple filesystem corpus backend;
 - a prompt template matching the Context-1 retrieval-subagent role;
 - a minimal harness that can emit tool-enabled prompts and collect evidence;
+- typed JSONL dataset schema plus quote-grounding validation;
+- initial retrieval metrics matching the Context-1 report;
 - benchmark script for MiniCPM5-1B on vLLM;
 - implementation roadmap for Pi integration and data generation.
 
@@ -56,6 +58,12 @@ Run the simple local harness against a folder of text files:
 python -m golden_retriever.harness \
   --corpus ./docs \
   --query "What tools should the retrieval subagent have?"
+```
+
+Validate a JSONL retrieval-task dataset:
+
+```bash
+golden-retriever-validate data/seed/tasks.jsonl --corpus-root docs
 ```
 
 Re-run the MiniCPM5-1B benchmark:
