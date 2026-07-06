@@ -6,8 +6,10 @@ from pathlib import Path
 
 from rich.console import Console
 
+from .agent_state import AgentTrajectory, ToolCall
+from .agent_tools import Context1ToolRunner
 from .prompts import render_retrieval_prompt
-from .tools import LocalCorpus, RetrievalState
+from .tools import LocalCorpus
 
 console = Console()
 
@@ -20,20 +22,21 @@ def run_local_retrieval(corpus_path: str | Path, query: str, limit: int = 8) -> 
     """
 
     corpus = LocalCorpus(corpus_path)
-    state = RetrievalState()
+    trajectory = AgentTrajectory(task_id="local-retrieval", metadata={"query": query})
+    runner = Context1ToolRunner(corpus, trajectory)
 
-    search_hits = corpus.search(query, limit=limit)
-    state.add(search_hits)
+    runner.run(ToolCall(name="search_corpus", arguments={"query": query, "limit": limit}))
 
     # Grep exact-ish important terms as a complementary lexical pass.
     important_terms = "|".join(sorted({token for token in query.split() if len(token) > 4})[:6])
     if important_terms:
-        state.add(corpus.grep(important_terms, limit=limit))
+        runner.run(ToolCall(name="grep_corpus", arguments={"pattern": important_terms, "limit": limit}))
 
     return {
         "query": query,
         "prompt": render_retrieval_prompt(query),
-        "chunks": [chunk.__dict__ for chunk in state.chunks],
+        "chunks": [chunk.__dict__ for chunk in runner.state.chunks],
+        "trajectory": trajectory.model_dump(mode="json"),
     }
 
 

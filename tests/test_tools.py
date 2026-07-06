@@ -53,3 +53,5 @@ def test_run_local_retrieval(tmp_path: Path):
     assert result["query"]
     assert "Available Tools" in result["prompt"]
     assert result["chunks"]
+    assert result["trajectory"]["observations"]
+    assert result["trajectory"]["encountered_doc_ids"]

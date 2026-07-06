@@ -76,3 +76,19 @@ Implementation proceeds autonomously in committed slices. At the end of each sli
 - next slice to execute.
 
 No confirmation is needed between slices unless credentials, paid APIs, destructive data deletion, or external messages are involved.
+
+## Execution log
+
+### Slice 1 — benchmark foundations
+
+Committed in `51c38e3`: pinned the Context-1 data-generation source, documented the Pi harness extension direction, added benchmark task/document schemas, and added comparable scoring with URL normalization.
+
+### Slice 2 — Pi-compatible trajectory and deterministic tools
+
+Adds the first concrete Pi-compatible observe/infer/act substrate:
+
+- `agent_state.py` stores observations, Context-1 tool calls, actions, encountered IDs, pruned IDs, active IDs, and final IDs.
+- `agent_tools.py` exposes deterministic `search_corpus`, `grep_corpus`, `read_document`, and `prune_chunks` calls over the existing local corpus backend.
+- `harness.py` now routes local retrieval through the same trajectory/tool-runner layer instead of bypassing it.
+
+This is still deterministic/local. It intentionally does not yet call Pi or a model; it creates the stable state/tool contract we can wire into Pi and benchmark adapters next.
