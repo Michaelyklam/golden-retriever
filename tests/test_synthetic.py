@@ -40,6 +40,21 @@ def test_select_distractors_prefers_token_overlap(tmp_path: Path):
     assert [d.doc_id for d in distractors] == ["near.md"]
 
 
+def test_extract_fact_candidates_can_take_multiple_per_document(tmp_path: Path):
+    (tmp_path / "multi.md").write_text(
+        "First substantive sentence has enough length to become one candidate.\n"
+        "Second substantive sentence also has enough length to become another candidate.\n",
+        encoding="utf-8",
+    )
+
+    candidates = extract_fact_candidates(tmp_path, min_chars=40, max_candidates_per_doc=2)
+
+    assert [c.quote for c in candidates] == [
+        "First substantive sentence has enough length to become one candidate.",
+        "Second substantive sentence also has enough length to become another candidate.",
+    ]
+
+
 def test_generate_tasks_write_and_validate(tmp_path: Path):
     corpus = tmp_path / "corpus"
     corpus.mkdir()

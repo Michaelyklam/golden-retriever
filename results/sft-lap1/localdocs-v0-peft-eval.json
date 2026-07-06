@@ -1,0 +1,199 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "adapter": "models/minicpm5-1b-localdocs-format-lap1-lora",
+  "dataset": "data/generated/localdocs-v0/tasks.jsonl",
+  "corpus_root": "data/generated/localdocs-v0/corpus",
+  "mode": "local_peft_closed_corpus_selection",
+  "elapsed_seconds": 32.909674406051636,
+  "summary": {
+    "num_tasks": 12,
+    "final_answer_found": 0.0,
+    "recall": 0.0,
+    "precision": 0.0,
+    "f1": 0.0
+  },
+  "results": [
+    {
+      "task_id": "localdocs-000001",
+      "question": "Which document contains evidence for the claim: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.",
+      "answer": "A small-model agentic retrieval lab inspired by Chroma's",
+      "positive_doc_ids": [
+        "README.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.\"\n\nWe need to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain the claim. The claim is: \"A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.\"\n\nLooking at the corpus, we see several documents that mention this claim. Specifically, the following document ids are relevant:\n\n- README.md (the initial scaffold document)\n- base-smoke/chaining.md\n- base-smoke/grep.md\n- base-smoke/prune.md\n- base-smoke/read.md\n- base-smoke/search.md\n- base-smoke/verification.md\n- docs/context-1-notes.md\n- docs/data-pipeline.md\n- docs/experiments.md\n- docs/roadmap.md\n- minicpm5-1"
+    },
+    {
+      "task_id": "localdocs-000002",
+      "question": "Which document contains evidence for the claim: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.",
+      "answer": "Synthetic retrieval tasks can be recursively chained by",
+      "positive_doc_ids": [
+        "base_smoke/chaining.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.\"\n\nWe need to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain evidence for this claim. The corpus includes several documents: README.md, base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md, base-smoke/read.md, base-smoke/search.md, base-smoke/verification.md, docs/context-1-notes.md, docs/data-pipeline.md, docs/experiments.md, docs/roadmap.md, minicpm5-1b-rtx5060ti.md.\n\nWe are to return the document ids that are most relevant. The query is about synthetic retrieval tasks being recursively chained, so the documents that contain evidence for this claim are likely the ones that discuss the chaining mechanism. The relevant documents are: base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md, base-smoke/read.md, base-smoke/search.md"
+    },
+    {
+      "task_id": "localdocs-000003",
+      "question": "Which document contains evidence for the claim: It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.",
+      "answer": "It is useful when the retrieval subagent needs",
+      "positive_doc_ids": [
+        "base_smoke/grep.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.\"\n\nWe need to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain evidence for the claim. The claim is: \"It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.\"\n\nLooking at the corpus, we see several documents that are described in the context of retrieval subagents. The claim is about the retrieval subagent needing exact keywords, symbols, names, or phrases rather than semantic similarity. This is a characteristic of the retrieval subagent model, and it is supported by the tools and benchmarks mentioned.\n\nThe relevant documents are:\n\n- READ.md (the initial scaffold)\n- base-smoke/chaining.md (the synthetic task chaining)\n- base-smoke/grep.md (GrepTool)\n- base-smoke/prune.md (PruneChunksTool)\n- base-smoke/read.md (ReadDocument)\n- base-smoke/search.md (SearchTool)\n- docs/context-1-notes.md"
+    },
+    {
+      "task_id": "localdocs-000004",
+      "question": "Which document contains evidence for the claim: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.",
+      "answer": "It helps the retrieval subagent free token budget",
+      "positive_doc_ids": [
+        "base_smoke/prune.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.\"\n\nWe need to find the document that contains evidence for this claim. The corpus is provided, and we have to identify which document(s) contain evidence for the claim.\n\nLooking at the corpus, we see several documents: README.md, base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md, base-smoke/read.md, base-smoke/search.md, base-smoke/verification.md, docs/context-1-notes.md, docs/data-pipeline.md, docs/experiments.md, docs/roadmap.md, minicpm5-1b-rtx5060ti.md.\n\nThe claim is: \"It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.\"\n\nWe need to find evidence for this claim. The corpus includes several tools and methods that are described in the context of retrieval subagent. For example, the PruneChunksTool is described as \"remove irrelevant chunks to free context budget.\" This directly relates to freeing"
+    },
+    {
+      "task_id": "localdocs-000005",
+      "question": "Which document contains evidence for the claim: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.",
+      "answer": "ReadDocument opens a specific document when a retrieved",
+      "positive_doc_ids": [
+        "base_smoke/read.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.\"\n\nWe need to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain evidence for the claim. The claim is: \"ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.\"\n\nLooking at the corpus, we have several documents: README.md, base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md, base-smoke/read.md, base-smoke/search.md, base-smoke/verification.md, docs/context-1-notes.md, docs/data-pipeline.md, docs/experiments.md, docs/roadmap.md, minicpm5-1b-rtx5060ti.md.\n\nWe need to find which of these documents contain evidence for the claim. The claim is about \"ReadDocument\" opening a specific document when a retrieved snippet is incomplete. So we should look for documents that mention \"ReadDocument\" or \"ReadDocument\" in the text.\n\nLet's go through each document:\n\n- README.md"
+    },
+    {
+      "task_id": "localdocs-000006",
+      "question": "Which document contains evidence for the claim: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.",
+      "answer": "It combines lexical and embedding retrieval, then returns",
+      "positive_doc_ids": [
+        "base_smoke/search.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.\"\n\nWe need to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain evidence for the claim. The claim is: \"It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.\"\n\nLooking at the corpus, we have several documents: README.md, base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md, base-smoke/read.md, base-smoke/search.md, base-smoke/verification.md, docs/context-1-notes.md, docs/data-pipeline.md, docs/experiments.md, docs/roadmap.md, minicpm5-1b-rtx5060ti.md.\n\nWe need to find which of these documents contain evidence for the claim. The claim is about a retrieval subagent that combines lexical and embedding retrieval and returns promising chunks. This is described in the README.md, base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md,"
+    },
+    {
+      "task_id": "localdocs-000007",
+      "question": "Which document contains evidence for the claim: A generated task is accepted only when declared document quotes literally appear in the source document.",
+      "answer": "A generated task is accepted only when declared",
+      "positive_doc_ids": [
+        "base_smoke/verification.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: A generated task is accepted only when declared document quotes literally appear in the source document.\"\n\nWe need to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain evidence for the claim. The claim is: \"A generated task is accepted only when declared document quotes literally appear in the source document.\"\n\nLooking at the corpus, we have several documents: README.md, golden-retriever, base-smoke, docs, context-1-notes, base-smoke, grep, base-smoke, search, verification, docs/context-1-notes, data-pipeline, docs/experiments, docs/roadmap, minicpm5-1b-rtx5060ti, and minicpm5-1b-rtx5060ti.\n\nWe need to find which of these documents contain evidence for the claim. The claim is about the acceptance of a generated task based on literal document quotes. So we should look for documents that have evidence of such quotes.\n\nLet's examine the documents:\n\n- README.md: This is a description of the project,"
+    },
+    {
+      "task_id": "localdocs-000008",
+      "question": "Which document contains evidence for the claim: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.",
+      "answer": "The agent loop is useful because many real",
+      "positive_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.\"\n\nWe need to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain the claim or are related to the claim. The corpus includes several documents: README.md, base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md, base-smoke/read.md, base-smoke/search.md, base-smoke/verification.md, docs/context-1-notes.md, docs/data-pipeline.md, docs/experiments.md, docs/roadmap.md, minicpm5-1b-rtx5060ti.md.\n\nWe should select the ones that are most directly related to the claim. The claim is about the agent loop being useful for multi-hop retrieval. The documents that mention this are: README.md, base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md, base-smoke/read.md, base-smoke/search.md, base-smoke/verification"
+    },
+    {
+      "task_id": "localdocs-000009",
+      "question": "Which document contains evidence for the claim: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.",
+      "answer": "This is the working data plan for training",
+      "positive_doc_ids": [
+        "docs/data-pipeline.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [
+        "document_id"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus with several relevant documents. The task is to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain evidence for the claim: \"This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.\" We need to extract the document ids from the corpus.\n\nLooking at the corpus, the relevant documents are:\n- README.md (the initial scaffold)\n- base-smoke/chaining.md\n- base-smoke/grep.md\n- base-smoke/prune.md\n- base-smoke/read.md\n- base-smoke/search.md\n- base-smoke/verification.md\n- docs/context-1-notes.md\n- docs/data-pipeline.md\n- docs/experiments.md\n- docs/roadmap.md\n- minicpm5-1b-rtx5060ti.md\n\nWe should return these document ids in the requested XML-like format. The format is: <Document id=\"document_id\"><Justification>Brief reason.</Justification></Document>\n\nWe need to list each document id with a brief justification. The justification should be relevant to the claim. For example, README.md"
+    },
+    {
+      "task_id": "localdocs-000010",
+      "question": "Which document contains evidence for the claim: Every row should correspond to a committed repo state and, once training starts, a model artifact or adapter path.",
+      "answer": "Every row should correspond to a committed repo",
+      "positive_doc_ids": [
+        "docs/experiments.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: Every row should correspond to a committed repo state and, once training starts, a model artifact or adapter path.\"\n\nWe need to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain evidence for this claim. From the corpus, we have several documents: README.md, base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md, base-smoke/read.md, base-smoke/search.md, docs/context-1-notes.md, docs/data-pipeline.md, docs/experiments.md, docs/roadmap.md, minicpm5-1b-rtx5060ti.md.\n\nWe need to rank them by relevance. The query is about evidence for a claim that every row corresponds to a committed repo state and a model artifact or adapter path. This claim is mentioned in the context of the retrieval subagent model, which is described as a retrieval subagent that decomposes the query, searches, reads, prunes, and returns evidence. The MiniCPM5-1B model is described as being small enough for cheap iteration and"
+    },
+    {
+      "task_id": "localdocs-000011",
+      "question": "Which document contains evidence for the claim: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.",
+      "answer": "> **For Hermes:** Use subagent-driven-development skill to implement",
+      "positive_doc_ids": [
+        "docs/roadmap.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.\"\n\nWe need to return the most relevant document ids in the requested XML-like format. The relevant documents are those that contain evidence for the claim. The claim is: \"For Hermes: Use subagent-driven-development skill to implement this plan task-by-task.\"\n\nLooking at the corpus, we see several documents. The claim is mentioned in the context of MiniCPM5-1B, which is a retrieval subagent. The claim is about using subagent-driven-development skill. The corpus includes documents that are related to MiniCPM5-1B, the retrieval subagent, and the context-1 model. The claim is likely to be found in the documents that describe MiniCPM5-1B, the retrieval subagent, and the context-1 model.\n\nWe need to identify which document contains evidence for the claim. The claim is: \"For Hermes: Use subagent-driven-development skill to implement this plan task-by-task.\"\n\nWe can look at the documents that are about MiniCPM5-1B, the retrieval"
+    },
+    {
+      "task_id": "localdocs-000012",
+      "question": "Which document contains evidence for the claim: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).",
+      "answer": "Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver",
+      "positive_doc_ids": [
+        "minicpm5-1b-rtx5060ti.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe are given a query and a corpus of documents. The query asks: \"Which document contains evidence for the claim: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).\"\n\nWe need to return the most relevant document ids from the corpus. The corpus includes several documents: README.md, base-smoke/chaining.md, base-smoke/grep.md, base-smoke/prune.md, base-smoke/read.md, base-smoke/search.md, base-smoke/verification.md, docs/context-1-notes.md, docs/data-pipeline.md, docs/experiments.md, docs/roadmap.md, minicpm5-1b-rtx5060ti.md.\n\nWe are to return the document ids in the requested XML-like format, but only the most relevant ones. The query is about a specific claim about `nvidia-smi` failure, and the corpus contains many documents. We need to identify which documents contain evidence for that claim.\n\nLooking at the corpus, the document that directly contains the claim is: \"docs/context-1-notes.md\". It has a section:"
+    }
+  ]
+}

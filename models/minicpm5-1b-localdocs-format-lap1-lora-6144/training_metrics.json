@@ -1,0 +1,14 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "train_file": "data/sft/localdocs-format-lap1/train.jsonl",
+  "output_dir": "models/minicpm5-1b-localdocs-format-lap1-lora-6144",
+  "examples": 51,
+  "epochs": 1,
+  "optimizer_steps": 7,
+  "final_loss": 1.43502938747406,
+  "mean_loss": 1.7797670528000475,
+  "elapsed_seconds": 64.31506109237671,
+  "max_length": 6144,
+  "lora_rank": 8,
+  "lora_alpha": 16
+}

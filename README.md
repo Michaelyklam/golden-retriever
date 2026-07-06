@@ -77,6 +77,27 @@ golden-retriever-generate \
   --domain localdocs
 ```
 
+Build chat-format SFT examples:
+
+```bash
+golden-retriever-build-sft \
+  --dataset data/generated/localdocs-train-v0/tasks.jsonl \
+  --corpus-root data/generated/localdocs-v0/corpus \
+  --output data/sft/localdocs-format-lap1/train.jsonl
+```
+
+Run a minimal LoRA SFT lap from an environment with Torch/Transformers/PEFT installed:
+
+```bash
+golden-retriever-train-lora-sft \
+  --model openbmb/MiniCPM5-1B \
+  --train-file data/sft/localdocs-format-lap1/train.jsonl \
+  --output-dir models/minicpm5-1b-localdocs-format-lap1-lora-6144 \
+  --epochs 1 \
+  --max-length 6144 \
+  --target-modules q_proj,v_proj
+```
+
 Run the current base-model closed-corpus eval, assuming a vLLM server is listening on `:8000`:
 
 ```bash

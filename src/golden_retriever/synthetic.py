@@ -38,7 +38,12 @@ def _sentences_from_text(text: str) -> list[str]:
     return sentences
 
 
-def extract_fact_candidates(corpus_root: str | Path, min_chars: int = 80, max_chars: int = 260) -> list[FactCandidate]:
+def extract_fact_candidates(
+    corpus_root: str | Path,
+    min_chars: int = 80,
+    max_chars: int = 260,
+    max_candidates_per_doc: int = 1,
+) -> list[FactCandidate]:
     """Extract deterministic source-quote candidates from a local corpus."""
 
     root = Path(corpus_root)
@@ -46,10 +51,13 @@ def extract_fact_candidates(corpus_root: str | Path, min_chars: int = 80, max_ch
     for path in _iter_text_files(root):
         text = path.read_text(encoding="utf-8", errors="ignore")
         doc_id = path.relative_to(root).as_posix()
+        doc_count = 0
         for sentence in _sentences_from_text(text):
             if min_chars <= len(sentence) <= max_chars:
                 candidates.append(FactCandidate(doc_id=doc_id, quote=sentence))
-                break
+                doc_count += 1
+                if doc_count >= max_candidates_per_doc:
+                    break
     return candidates
 
 
@@ -122,8 +130,9 @@ def generate_tasks(
     limit: int | None = None,
     distractor_count: int = 3,
     domain: str = "localdocs",
+    max_candidates_per_doc: int = 1,
 ) -> list[RetrievalTask]:
-    candidates = extract_fact_candidates(corpus_root)
+    candidates = extract_fact_candidates(corpus_root, max_candidates_per_doc=max_candidates_per_doc)
     if limit is not None:
         candidates = candidates[:limit]
     return [
@@ -146,6 +155,7 @@ def main() -> None:
     parser.add_argument("--output", required=True)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--distractors", type=int, default=3)
+    parser.add_argument("--max-candidates-per-doc", type=int, default=1)
     parser.add_argument("--domain", default="localdocs")
     args = parser.parse_args()
 
@@ -154,6 +164,7 @@ def main() -> None:
         limit=args.limit,
         distractor_count=args.distractors,
         domain=args.domain,
+        max_candidates_per_doc=args.max_candidates_per_doc,
     )
     write_tasks_jsonl(tasks, args.output)
     print(json.dumps({"tasks": len(tasks), "output": args.output}, indent=2))

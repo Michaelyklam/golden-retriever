@@ -1,0 +1,271 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "adapter": "models/minicpm5-1b-localdocs-format-lap1-lora-6144",
+  "dataset": "data/generated/localdocs-v0/tasks.jsonl",
+  "corpus_root": "data/generated/localdocs-v0/corpus",
+  "mode": "local_peft_closed_corpus_selection_enable_thinking_false",
+  "elapsed_seconds": 18.201178073883057,
+  "summary": {
+    "num_tasks": 12,
+    "final_answer_found": 0.25,
+    "recall": 0.25,
+    "precision": 0.125,
+    "f1": 0.1488095238095238
+  },
+  "results": [
+    {
+      "task_id": "localdocs-000001",
+      "question": "Which document contains evidence for the claim: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.",
+      "answer": "A small-model agentic retrieval lab inspired by Chroma's",
+      "positive_doc_ids": [
+        "README.md"
+      ],
+      "returned_doc_ids": [
+        "base_smoke/chaining.md",
+        "base_smoke/grep.md",
+        "base_smoke/prune.md",
+        "base_smoke/read.md",
+        "base_smoke/search.md",
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<Document id=\"base_smoke/chaining.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/prune.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/read.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/search.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/context-1-notes.md\"><Justification"
+    },
+    {
+      "task_id": "localdocs-000002",
+      "question": "Which document contains evidence for the claim: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.",
+      "answer": "Synthetic retrieval tasks can be recursively chained by",
+      "positive_doc_ids": [
+        "base_smoke/chaining.md"
+      ],
+      "returned_doc_ids": [
+        "base_smoke/chaining.md",
+        "base_smoke/grep.md",
+        "base_smoke/prune.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.3333333333333333,
+      "f1": 0.5,
+      "raw_output": "<Document id=\"base_smoke/chaining.md\"><Justification>Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>GrepTool performs regex text pattern matching over the corpus. It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.</Justification></Document>\n<Document id=\"base_smoke/prune.md\"><Justification>PruneChunksTool removes irrelevant chunks from the active context window. It"
+    },
+    {
+      "task_id": "localdocs-000003",
+      "question": "Which document contains evidence for the claim: It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.",
+      "answer": "It is useful when the retrieval subagent needs",
+      "positive_doc_ids": [
+        "base_smoke/grep.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [
+        "golden-retriever.harness",
+        "golden-retriever-schemas.py"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<Document id=\"golden-retriever.harness\"><Justification>Brief reason: This document provides the initial implementation of the golden-retriever system, including the local filesystem corpus, the retrieval worker (MiniCPM5-1B), and the tool contracts. It outlines the workflow for generating retrieval tasks, validating datasets, and running benchmarks. The document is relevant because it contains the foundational code and setup for the retrieval subagent, which is the core of the system described in the query.</Document>\n<Document id=\"golden-retriever-schemas.py\"><Justification>Brief reason: This"
+    },
+    {
+      "task_id": "localdocs-000004",
+      "question": "Which document contains evidence for the claim: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.",
+      "answer": "It helps the retrieval subagent free token budget",
+      "positive_doc_ids": [
+        "base_smoke/prune.md"
+      ],
+      "returned_doc_ids": [
+        "base_smoke/chaining.md",
+        "base_smoke/grep.md",
+        "base_smoke/prune.md",
+        "base_smoke/read.md",
+        "base_smoke/search.md",
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "<Document id=\"base_smoke/chaining.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/prune.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/read.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/search.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/context-1-notes.md\"><Justification"
+    },
+    {
+      "task_id": "localdocs-000005",
+      "question": "Which document contains evidence for the claim: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.",
+      "answer": "ReadDocument opens a specific document when a retrieved",
+      "positive_doc_ids": [
+        "base_smoke/read.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md",
+        "docs/data-pipeline.md",
+        "docs/experiments.md",
+        "docs/roadmap.md"
+      ],
+      "unknown_doc_ids": [
+        "docs/verification.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<Document id=\"docs/context-1-notes.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/data-pipeline.md\"><Justification>Text-based dataset pipeline with quote-grounding validation.</Justification></Document>\n<Document id=\"docs/experiments.md\"><Justification>Model/dataset/harness checkpoints and decision rules.</Justification></Document>\n<Document id=\"docs/roadmap.md\"><Justification>Implementation roadmap and concrete tool contracts.</Justification></Document>\n<Document id=\"docs/verification.md\"><Justification>Extraction-based verification method using quote-grounding.</"
+    },
+    {
+      "task_id": "localdocs-000006",
+      "question": "Which document contains evidence for the claim: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.",
+      "answer": "It combines lexical and embedding retrieval, then returns",
+      "positive_doc_ids": [
+        "base_smoke/search.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [
+        "golden-retriever.harness",
+        "golden-retriever-validate",
+        "golden-retriever-model-eval"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<Document id=\"golden-retriever.harness\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"golden-retriever-validate\"><Justification>Validates JSONL retrieval-task dataset format and quote-grounding validation.</Justification></Document>\n<Document id=\"golden-retriever-model-eval\"><Justification>Runs MiniCPM5-1B closed-corpus evaluation on vLLM.</Justification></Document>\n<Document id=\"golden-retriever-validate\"><Justification>Runs MiniCPM5-1B benchmark with vLLM and RTX 5060 Ti"
+    },
+    {
+      "task_id": "localdocs-000007",
+      "question": "Which document contains evidence for the claim: A generated task is accepted only when declared document quotes literally appear in the source document.",
+      "answer": "A generated task is accepted only when declared",
+      "positive_doc_ids": [
+        "base_smoke/verification.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md",
+        "docs/data-pipeline.md",
+        "docs/experiments.md",
+        "docs/roadmap.md"
+      ],
+      "unknown_doc_ids": [
+        "docs/verification.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<Document id=\"docs/context-1-notes.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/data-pipeline.md\"><Justification>Text-based dataset schema and validation method.</Justification></Document>\n<Document id=\"docs/experiments.md\"><Justification>Model evaluation, SFT trajectory filtering, and failure mode analysis.</Justification></Document>\n<Document id=\"docs/roadmap.md\"><Justification>Implementation roadmap and concrete tool contracts.</Justification></Document>\n<Document id=\"docs/verification.md\"><Justification>Extraction-based verification and quote-grounding"
+    },
+    {
+      "task_id": "localdocs-000008",
+      "question": "Which document contains evidence for the claim: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.",
+      "answer": "The agent loop is useful because many real",
+      "positive_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chaining.md",
+        "base-smoke/grep.md",
+        "base-smoke/prune.md",
+        "base-smoke/read.md",
+        "base-smoke/search.md"
+      ],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "<Document id=\"base-smoke/chaining.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base-smoke/grep.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base-smoke/prune.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base-smoke/read.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base-smoke/search.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/context-1-notes.md\"><Justification"
+    },
+    {
+      "task_id": "localdocs-000009",
+      "question": "Which document contains evidence for the claim: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.",
+      "answer": "This is the working data plan for training",
+      "positive_doc_ids": [
+        "docs/data-pipeline.md"
+      ],
+      "returned_doc_ids": [
+        "base_smoke/chaining.md",
+        "base_smoke/grep.md",
+        "base_smoke/prune.md",
+        "base_smoke/read.md",
+        "base_smoke/search.md",
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<Document id=\"base_smoke/chaining.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/prune.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/read.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/search.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/context-1-notes.md\"><Justification"
+    },
+    {
+      "task_id": "localdocs-000010",
+      "question": "Which document contains evidence for the claim: Every row should correspond to a committed repo state and, once training starts, a model artifact or adapter path.",
+      "answer": "Every row should correspond to a committed repo",
+      "positive_doc_ids": [
+        "docs/experiments.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chaining.md",
+        "base-smoke/grep.md",
+        "base-smoke/prune.md",
+        "base-smoke/read.md",
+        "base-smoke/search.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<Document id=\"base-smoke/chaining.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base-smoke/grep.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base-smoke/prune.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base-smoke/read.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base-smoke/search.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/context-1-notes.md\"><Justification"
+    },
+    {
+      "task_id": "localdocs-000011",
+      "question": "Which document contains evidence for the claim: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.",
+      "answer": "> **For Hermes:** Use subagent-driven-development skill to implement",
+      "positive_doc_ids": [
+        "docs/roadmap.md"
+      ],
+      "returned_doc_ids": [
+        "base_smoke/chaining.md",
+        "base_smoke/grep.md",
+        "base_smoke/prune.md",
+        "base_smoke/read.md",
+        "base_smoke/search.md",
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<Document id=\"base_smoke/chaining.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/prune.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/read.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"base_smoke/search.md\"><Justification>Brief reason.</Justification></Document>\n<Document id=\"docs/context-1-notes.md\"><Justification"
+    },
+    {
+      "task_id": "localdocs-000012",
+      "question": "Which document contains evidence for the claim: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).",
+      "answer": "Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver",
+      "positive_doc_ids": [
+        "minicpm5-1b-rtx5060ti.md"
+      ],
+      "returned_doc_ids": [
+        "base_smoke/chaining.md",
+        "base_smoke/grep.md",
+        "base_smoke/prune.md",
+        "base_smoke/read.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<Document id=\"base_smoke/chaining.md\"><Justification>Used to demonstrate recursive chaining of retrieval tasks, controlling hop count.</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>Used to show regex text pattern matching for exact keyword search.</Justification></Document>\n<Document id=\"base_smoke/prune.md\"><Justification>Used to show chunk removal for context pruning.</Justification></Document>\n<Document id=\"base_smoke/read.md\"><Justification>Used to show document-specific retrieval for incomplete snippets.</Justification></Document>\n<Document id=\"base_smoke/search"
+    }
+  ]
+}
