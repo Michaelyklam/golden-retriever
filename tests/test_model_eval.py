@@ -128,3 +128,26 @@ def test_evaluate_task_from_text_scores_model_output(tmp_path: Path):
     assert result["recall"] == 1.0
     assert result["precision"] == 1.0
     assert result["f1"] == 1.0
+
+
+def test_evaluate_task_counts_plain_doc_id_mentions(tmp_path: Path):
+    doc_id = "longseal/000000/gold.md"
+    path = tmp_path / doc_id
+    path.parent.mkdir(parents=True)
+    path.write_text("Serban Ghenea has five wins.", encoding="utf-8")
+    task = RetrievalTask(
+        task_id="plain-id",
+        domain="longseal",
+        difficulty=1,
+        hop_count=1,
+        question="Who holds the record?",
+        answer="Serban Ghenea",
+        clues=["record"],
+        supporting_documents=[EvidenceDocument(doc_id=doc_id, role="positive")],
+    )
+
+    result = evaluate_task_from_text(task, tmp_path, f"The grounded supporting document id is {doc_id}.")
+
+    assert result["returned_doc_ids"] == [doc_id]
+    assert result["recall"] == 1.0
+    assert result["final_answer_found"] is True

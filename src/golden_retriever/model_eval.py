@@ -136,6 +136,13 @@ def evaluate_task_from_text(task: RetrievalTask, corpus_root: str | Path, output
     parsed_ids = parse_document_ids(output_text)
     positive_ids = [doc.doc_id for doc in task.supporting_documents]
     corpus_by_id = dict(_load_corpus_documents(corpus_root))
+    # Some local adapters emit natural-language reasoning that contains the
+    # exact document ID before/without wrapping it in the final XML-like tag.
+    # Count exact ID mentions as returned evidence so truncated but identifiable
+    # outputs are not scored as total parse failures.
+    for doc_id in corpus_by_id:
+        if doc_id in output_text and doc_id not in parsed_ids:
+            parsed_ids.append(doc_id)
     returned_ids = [doc_id for doc_id in parsed_ids if doc_id in corpus_by_id]
     unknown_ids = [doc_id for doc_id in parsed_ids if doc_id not in corpus_by_id]
     output_texts = [corpus_by_id.get(doc_id, "") for doc_id in returned_ids]
@@ -166,11 +173,16 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def _render_prompt_by_scope(task: RetrievalTask, corpus_root: str | Path, prompt_scope: str) -> str:
+def _render_prompt_by_scope(
+    task: RetrievalTask,
+    corpus_root: str | Path,
+    prompt_scope: str,
+    max_chars_per_doc: int = 6000,
+) -> str:
     if prompt_scope == "full-corpus":
-        return render_corpus_prompt(task, corpus_root)
+        return render_corpus_prompt(task, corpus_root, max_chars_per_doc=max_chars_per_doc)
     if prompt_scope == "task-candidates":
-        return render_task_candidate_prompt(task, corpus_root)
+        return render_task_candidate_prompt(task, corpus_root, max_chars_per_doc=max_chars_per_doc)
     raise ValueError(f"Unsupported prompt scope: {prompt_scope}")
 
 
@@ -204,38 +216,42 @@ def evaluate_dataset(
     }
 
 
-def evaluate_local_peft_dataset(
+def evaluate_local_model_dataset(
     dataset_path: str | Path,
     corpus_root: str | Path,
     model: str,
-    adapter: str | Path,
+    adapter: str | Path | None = None,
     limit: int | None = None,
     max_new_tokens: int = 768,
     prompt_scope: str = "task-candidates",
     enable_thinking: bool = False,
     dtype: str = "bfloat16",
+    max_chars_per_doc: int = 6000,
 ) -> dict[str, Any]:
-    """Evaluate a PEFT LoRA adapter directly without an OpenAI-compatible server."""
+    """Evaluate a local base model or PEFT LoRA adapter directly."""
 
     import torch
-    from peft import PeftModel
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     tasks = load_jsonl(dataset_path)
     if limit is not None:
         tasks = tasks[:limit]
 
-    tokenizer = AutoTokenizer.from_pretrained(adapter, trust_remote_code=True)
+    tokenizer_source = adapter if adapter else model
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_source, trust_remote_code=True)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
     torch_dtype = torch.bfloat16 if dtype == "bfloat16" else torch.float16
-    base_model = AutoModelForCausalLM.from_pretrained(
+    loaded_model = AutoModelForCausalLM.from_pretrained(
         model,
         trust_remote_code=True,
         torch_dtype=torch_dtype,
         device_map={"": 0} if torch.cuda.is_available() else None,
     )
-    loaded_model = PeftModel.from_pretrained(base_model, adapter)
+    if adapter:
+        from peft import PeftModel
+
+        loaded_model = PeftModel.from_pretrained(loaded_model, adapter)
     loaded_model.eval()
     device = next(loaded_model.parameters()).device
 
@@ -248,7 +264,7 @@ def evaluate_local_peft_dataset(
         "eos_token_id": tokenizer.eos_token_id,
     }
     for task in tasks:
-        prompt = _render_prompt_by_scope(task, corpus_root, prompt_scope)
+        prompt = _render_prompt_by_scope(task, corpus_root, prompt_scope, max_chars_per_doc=max_chars_per_doc)
         template_kwargs = {"enable_thinking": True} if enable_thinking else {}
         prompt_text = tokenizer.apply_chat_template(
             [
@@ -268,14 +284,41 @@ def evaluate_local_peft_dataset(
     elapsed = time.time() - started
     return {
         "model": model,
-        "adapter": str(adapter),
+        "adapter": str(adapter) if adapter else None,
         "dataset": str(dataset_path),
         "corpus_root": str(corpus_root),
-        "mode": f"local_peft_{prompt_scope}_{'thinking' if enable_thinking else 'no_thinking'}",
+        "mode": f"local_{'peft' if adapter else 'base'}_{prompt_scope}_{'thinking' if enable_thinking else 'no_thinking'}",
+        "max_chars_per_doc": max_chars_per_doc,
         "elapsed_seconds": elapsed,
         "summary": summarize_results(results),
         "results": results,
     }
+
+
+def evaluate_local_peft_dataset(
+    dataset_path: str | Path,
+    corpus_root: str | Path,
+    model: str,
+    adapter: str | Path,
+    limit: int | None = None,
+    max_new_tokens: int = 768,
+    prompt_scope: str = "task-candidates",
+    enable_thinking: bool = False,
+    dtype: str = "bfloat16",
+) -> dict[str, Any]:
+    """Evaluate a PEFT LoRA adapter directly without an OpenAI-compatible server."""
+
+    return evaluate_local_model_dataset(
+        dataset_path=dataset_path,
+        corpus_root=corpus_root,
+        model=model,
+        adapter=adapter,
+        limit=limit,
+        max_new_tokens=max_new_tokens,
+        prompt_scope=prompt_scope,
+        enable_thinking=enable_thinking,
+        dtype=dtype,
+    )
 
 
 def main() -> None:
@@ -285,16 +328,18 @@ def main() -> None:
     parser.add_argument("--base-url", default="http://127.0.0.1:8000/v1")
     parser.add_argument("--model", default="openbmb/MiniCPM5-1B")
     parser.add_argument("--adapter", help="Optional PEFT adapter path. When set, evaluate locally instead of via --base-url.")
+    parser.add_argument("--local", action="store_true", help="Evaluate the base model locally without an OpenAI-compatible server.")
     parser.add_argument("--output", required=True)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--max-tokens", type=int, default=2048)
+    parser.add_argument("--max-chars-per-doc", type=int, default=6000)
     parser.add_argument("--prompt-scope", choices=["full-corpus", "task-candidates"], default="full-corpus")
     parser.add_argument("--enable-thinking", action="store_true")
     parser.add_argument("--dtype", choices=["bfloat16", "float16"], default="bfloat16")
     args = parser.parse_args()
 
-    if args.adapter:
-        report = evaluate_local_peft_dataset(
+    if args.adapter or args.local:
+        report = evaluate_local_model_dataset(
             dataset_path=args.dataset,
             corpus_root=args.corpus_root,
             model=args.model,
@@ -304,6 +349,7 @@ def main() -> None:
             prompt_scope=args.prompt_scope,
             enable_thinking=args.enable_thinking,
             dtype=args.dtype,
+            max_chars_per_doc=args.max_chars_per_doc,
         )
     else:
         report = evaluate_dataset(

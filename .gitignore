@@ -17,3 +17,7 @@ build/
 *.pth
 *.gguf
 models/**/adapter_model.safetensors
+
+# Downloaded benchmark corpora/raw datasets can be large; commit generated manifests/results instead.
+data/benchmarks/raw/
+data/benchmarks/materialized/

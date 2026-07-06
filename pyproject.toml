@@ -15,6 +15,10 @@ dependencies = [
 dev = [
   "pytest>=8.0",
 ]
+benchmarks = [
+  "huggingface-hub>=1.0",
+  "pyarrow>=16.0",
+]
 
 [project.scripts]
 golden-retriever = "golden_retriever.harness:main"

@@ -1,0 +1,208 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "adapter": "models/minicpm5-1b-mixed-synthdomains-localdocs-thinking-lap4-r16-all-lora-4096-e3",
+  "dataset": "data/benchmarks/materialized/longseal/tasks.jsonl",
+  "corpus_root": "data/benchmarks/materialized/longseal/corpus",
+  "mode": "local_peft_task-candidates_thinking",
+  "max_chars_per_doc": 700,
+  "elapsed_seconds": 27.16858744621277,
+  "summary": {
+    "num_tasks": 10,
+    "final_answer_found": 0.5,
+    "recall": 1.0,
+    "precision": 0.3833333333333333,
+    "f1": 0.55
+  },
+  "results": [
+    {
+      "task_id": "longseal-000000",
+      "question": "Who holds the all-time record at the Grammys for the most wins in the album of the year category?",
+      "answer": "Serban Ghenea",
+      "positive_doc_ids": [
+        "longseal/000000/grammy-award-for-album-of-the-year-ca121042.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000000/grammy-award-for-album-of-the-year-ca121042.md",
+        "longseal/000000/grammy-records-from-the-youngest-winner-to-the-most-80889aa7.md",
+        "longseal/000000/watch-artists-from-throughout-the-decades-win-album-of-55c953f1.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.3333333333333333,
+      "f1": 0.5,
+      "raw_output": "The query asks for the all-time record at the Grammys for the most wins in the album of the year category.\nThe grounded supporting document id is longseal/000000/grammy-award-for-album-of-the-year-ca121042.md.\nDistractors considered but rejected: longseal/000000/watch-artists-from-throughout-the-decades-win-album-of-55c953f1.md, longseal/000000/grammy-records-from-the-youngest-winner-to-the-most-80889aa7.md, longseal/000000/grammy-records-shattered-beyonc-t"
+    },
+    {
+      "task_id": "longseal-000001",
+      "question": "What is the current age of the oldest person to sail solo across the Pacific Ocean?",
+      "answer": "87 years old",
+      "positive_doc_ids": [
+        "longseal/001000/kenichi-horie-wikipedia-c82c1ddc.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000001/sailing-alone-11500-nautical-miles-across-the-entire-pacific-39eacf7f.md",
+        "longseal/001000/kenichi-horie-wikipedia-c82c1ddc.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "The query asks for the current age of the oldest person to sail solo across the Pacific Ocean.\nThe grounded supporting document id is longseal/001000/kenichi-horie-wikipedia-c82c1ddc.md.\nDistractors considered but rejected: longseal/000001/sailing-alone-11500-nautical-miles-across-the-entire-pacific-39eacf7f.md, longseal/000001/japanese-man-becomes-world-s-oldest-to-sail-solo-across-1653a58e.md, longseal/000001/bill-hatfield-becomes-oldest-man-to-sail"
+    },
+    {
+      "task_id": "longseal-000002",
+      "question": "How many NBA players have scored 60 or more points in a regular season game since 2023?",
+      "answer": "12 players",
+      "positive_doc_ids": [
+        "longseal/002000/list-of-nba-single-game-scoring-leaders-wikipedia-4dad8fa6.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000002/50-point-games-by-players-this-season-d5fe914a.md",
+        "longseal/000002/nba-single-game-scoring-records-with-historical-context-1c223a37.md",
+        "longseal/002000/list-of-nba-single-game-scoring-leaders-wikipedia-4dad8fa6.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 1.0,
+      "precision": 0.3333333333333333,
+      "f1": 0.5,
+      "raw_output": "The query asks for the document id that matches: How many NBA players have scored 60 or more points in a regular season game since 2023?\nThe grounded supporting document id is longseal/002000/list-of-nba-single-game-scoring-leaders-wikipedia-4dad8fa6.md.\nDistractors considered but rejected: longseal/000002/nba-single-game-scoring-records-with-historical-context-1c223a37.md, longseal/000002/50-point-games-by-players-this-season-d5fe914a.md, longseal/000002/most-60-point-games"
+    },
+    {
+      "task_id": "longseal-000003",
+      "question": "How many current and former Real Madrid players are ranked in the top 10 of the latest Forbes list of the world's highest-paid athletes?",
+      "answer": "2 players",
+      "positive_doc_ids": [
+        "longseal/003000/forbes-list-of-the-world-s-highest-paid-athletes-wikipedia-f035b587.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000003/ronaldo-lebron-james-the-highest-paid-athletes-in-7dd83de3.md",
+        "longseal/003000/forbes-list-of-the-world-s-highest-paid-athletes-wikipedia-f035b587.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "The query asks for the current and former Real Madrid players ranked in the top 10 of the latest Forbes list of the world's highest-paid athletes.\nThe grounded supporting document id is longseal/003000/forbes-list-of-the-world-s-highest-paid-athletes-wikipedia-f035b587.md.\nDistractors considered but rejected: longseal/000003/the-world-s-highest-paid-athletes-2024-5f73c7ab.md, longseal/000003/ronaldo-lebron-james-the-highest-paid-athletes-in-7dd83de3.md, longseal/000003/the"
+    },
+    {
+      "task_id": "longseal-000004",
+      "question": "What is the most recent film to join the top 10 highest-grossing films of all time?",
+      "answer": "Zootopia 2",
+      "positive_doc_ids": [
+        "longseal/004000/list-of-highest-grossing-films-wikipedia-a23483ca.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000004/the-50-highest-grossing-movies-of-all-time-f0aee44b.md",
+        "longseal/000004/the-movies-that-have-made-more-than-1-billion-at-the-0e88a567.md",
+        "longseal/004000/list-of-highest-grossing-films-wikipedia-a23483ca.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.3333333333333333,
+      "f1": 0.5,
+      "raw_output": "The query asks for the most recent film to join the top 10 highest-grossing films of all time.\nThe grounded supporting document id is longseal/004000/list-of-highest-grossing-films-wikipedia-a23483ca.md.\nDistractors considered but rejected: longseal/000004/the-50-highest-grossing-movies-of-all-time-f0aee44b.md, longseal/000004/the-movies-that-have-made-more-than-1-billion-at-the-0e88a567.md, longseal/000004/the-10-highest-grossing-movies-of-all-time"
+    },
+    {
+      "task_id": "longseal-000005",
+      "question": "What is the current age of the last American experimental physicist to win the Nobel Prize in Physics?",
+      "answer": "83 years old",
+      "positive_doc_ids": [
+        "longseal/005000/list-of-nobel-laureates-in-physics-wikipedia-e162c123.md",
+        "longseal/005001/john-clarke-physicist-wikipedia-dddecb95.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000005/george-smoot-wins-nobel-prize-in-physics-e82dfd4b.md",
+        "longseal/000005/scientific-productivity-increases-with-age-f9e1366f.md",
+        "longseal/005000/list-of-nobel-laureates-in-physics-wikipedia-e162c123.md",
+        "longseal/005001/john-clarke-physicist-wikipedia-dddecb95.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "The query asks for the current age of the last American experimental physicist to win the Nobel Prize in Physics.\nThe grounded supporting document id is longseal/005000/list-of-nobel-laureates-in-physics-wikipedia-e162c123.md.\nDistractors considered but rejected: longseal/005001/john-clarke-physicist-wikipedia-dddecb95.md, longseal/000005/george-smoot-wins-nobel-prize-in-physics-e82dfd4b.md, longseal/000005/scientific-productivity-increases-with-age-f9e1366f.md.\nReturn only the supporting document"
+    },
+    {
+      "task_id": "longseal-000006",
+      "question": "How many airlines are members of IATA, the organization that supports airline activity and helps formulate industry policy and standards?",
+      "answer": "377",
+      "positive_doc_ids": [
+        "longseal/006000/iata-current-airline-members-c3109b79.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000006/id-card-eligibility-03b9cdbb.md",
+        "longseal/000006/international-air-transport-association-iata-home-2989cde3.md",
+        "longseal/006000/iata-current-airline-members-c3109b79.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 1.0,
+      "precision": 0.3333333333333333,
+      "f1": 0.5,
+      "raw_output": "The query asks for the document id matching: longseal/006000/iata-current-airline-members-c3109b79.md\nThe grounded supporting document id is longseal/006000/iata-current-airline-members-c3109b79.md.\nDistractors considered but rejected: longseal/000006/international-air-transport-association-iata-home-2989cde3.md, longseal/000006/what-is-the-iataternational-airtransport-association-d8c3a00f.md, longseal/000006/id-card-eligibility-03b9cdbb.md.\nReturn only the supporting document tag"
+    },
+    {
+      "task_id": "longseal-000007",
+      "question": "How many U.S. universities ranked in the top 20 of the latest QS World University Rankings?",
+      "answer": "9",
+      "positive_doc_ids": [
+        "longseal/007000/qs-world-university-rankings-2027-top-global-universities-topuniversities-ca297f6f.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000007/graduate-employability-top-universities-in-the-united-8e992f2d.md",
+        "longseal/000007/how-to-use-the-qs-world-university-rankings-by-subject-661d994f.md",
+        "longseal/007000/qs-world-university-rankings-2027-top-global-universities-topuniversities-ca297f6f.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.3333333333333333,
+      "f1": 0.5,
+      "raw_output": "The query asks for the number of U.S. universities ranked in the top 20 of the latest QS World University Rankings.\nThe grounded supporting document id is longseal/007000/qs-world-university-rankings-2027-top-global-universities-topuniversities-ca297f6f.md.\nDistractors considered but rejected: longseal/000007/how-to-use-the-qs-world-university-rankings-by-subject-661d994f.md, longseal/000007/graduate-employability-top-universities-in-the-united-8e992f2d.md, longseal/000007/qs"
+    },
+    {
+      "task_id": "longseal-000008",
+      "question": "How many books has Jamie Oliver published since 2020?",
+      "answer": "8",
+      "positive_doc_ids": [
+        "longseal/008000/jamie-oliver-wikipedia-7a194e68.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000008/how-jamie-oliver-s-the-naked-chef-changed-tv-cooking-dadaac95.md",
+        "longseal/000008/what-do-you-think-of-jamie-oliver-s-cooking-food-r-askuk-69aaaa11.md",
+        "longseal/008000/jamie-oliver-wikipedia-7a194e68.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.3333333333333333,
+      "f1": 0.5,
+      "raw_output": "The query asks for the book id: longseal/008000/jamie-oliver-wikipedia-7a194e68.md\nThe grounded supporting document id is longseal/008000/jamie-oliver-wikipedia-7a194e68.md.\nDistractors considered but rejected: longseal/000008/what-do-you-think-of-jamie-oliver-s-cooking-food-r-askuk-69aaaa11.md, longseal/000008/how-jamie-oliver-s-the-naked-chef-changed-tv-cooking-dadaac95.md, longseal/000008/jamie"
+    },
+    {
+      "task_id": "longseal-000009",
+      "question": "Which company most recently surpassed a $1 trillion market capitalization for the first time in its history?",
+      "answer": "SpaceX",
+      "positive_doc_ids": [
+        "longseal/009000/list-of-public-corporations-by-market-capitalization-wikipedia-03b84071.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/000009/6-factors-that-determine-your-company-s-valuation-847a76eb.md",
+        "longseal/000009/what-is-market-share-a-guide-to-business-competitiveness-fe205b7b.md",
+        "longseal/009000/list-of-public-corporations-by-market-capitalization-wikipedia-03b84071.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.3333333333333333,
+      "f1": 0.5,
+      "raw_output": "The query asks for the company that most recently surpassed a $1 trillion market capitalization for the first time in its history.\nThe grounded supporting document id is longseal/009000/list-of-public-corporations-by-market-capitalization-wikipedia-03b84071.md.\nDistractors considered but rejected: longseal/000009/what-is-market-share-a-guide-to-business-competitiveness-fe205b7b.md, longseal/000009/6-factors-that-determine-your-company-s-valuation-847a76eb.md, longseal/000009/factors-that-can-affect-stock-prices-9eaaa"
+    }
+  ]
+}

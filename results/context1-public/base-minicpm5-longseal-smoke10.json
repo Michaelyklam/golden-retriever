@@ -1,0 +1,175 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "adapter": null,
+  "dataset": "data/benchmarks/materialized/longseal/tasks.jsonl",
+  "corpus_root": "data/benchmarks/materialized/longseal/corpus",
+  "mode": "local_base_task-candidates_no_thinking",
+  "max_chars_per_doc": 700,
+  "elapsed_seconds": 16.93548321723938,
+  "summary": {
+    "num_tasks": 10,
+    "final_answer_found": 0.2,
+    "recall": 0.25,
+    "precision": 0.3,
+    "f1": 0.26666666666666666
+  },
+  "results": [
+    {
+      "task_id": "longseal-000000",
+      "question": "Who holds the all-time record at the Grammys for the most wins in the album of the year category?",
+      "answer": "Serban Ghenea",
+      "positive_doc_ids": [
+        "longseal/000000/grammy-award-for-album-of-the-year-ca121042.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe need to return the document ids that are most relevant to the query: \"Who holds the all-time record at the Grammys for the most wins in the album of the year category?\" The query is asking for the all-time record holder for the most wins in the album of the year category. We have many documents that mention album of the year winners, winners, records broken, etc. We need to select the ones that are most relevant.\n\nLet's analyze each document for relevance:\n\n1. Document: \"longseal/000000/grammy-award-for-album-of-the-year\" - This is"
+    },
+    {
+      "task_id": "longseal-000001",
+      "question": "What is the current age of the oldest person to sail solo across the Pacific Ocean?",
+      "answer": "87 years old",
+      "positive_doc_ids": [
+        "longseal/001000/kenichi-horie-wikipedia-c82c1ddc.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe need to return the document ids that are most relevant to the query: \"What is the current age of the oldest person to sail solo across the Pacific Ocean?\" The query is asking for the current age of the oldest person to sail solo across the Pacific Ocean. We have many documents that mention sailing solo across the Pacific, including Kenichi Horie (age 83), Jeanne Socrates (77), Bill Hatfield (81), Japanese man 83, etc. The query is about the current age, so we need to identify which documents provide the current age. However, note that some documents are about historical records (e.g.,"
+    },
+    {
+      "task_id": "longseal-000002",
+      "question": "How many NBA players have scored 60 or more points in a regular season game since 2023?",
+      "answer": "12 players",
+      "positive_doc_ids": [
+        "longseal/002000/list-of-nba-single-game-scoring-leaders-wikipedia-4dad8fa6.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe need to return the document ids that are most relevant to the query: \"How many NBA players have scored 60 or more points in a regular season game since 2023?\" We have 15 candidate documents. We must rank them by relevance and return only the document ids in the requested XML-like format.\n\nWe should evaluate each document for relevance to the query. The query is about NBA players scoring 60+ points in a regular season game since 2023. So we need to check if the document provides information that can answer the query or is relevant to it.\n\nLet's go through each document:\n\n"
+    },
+    {
+      "task_id": "longseal-000003",
+      "question": "How many current and former Real Madrid players are ranked in the top 10 of the latest Forbes list of the world's highest-paid athletes?",
+      "answer": "2 players",
+      "positive_doc_ids": [
+        "longseal/003000/forbes-list-of-the-world-s-highest-paid-athletes-wikipedia-f035b587.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe need to return the document ids that are most relevant to the query: \"How many current and former Real Madrid players are ranked in the top 10 of the latest Forbes list of the world's highest-paid athletes?\"\n\nWe have many documents. We need to rank them by relevance. The query is about Real Madrid players in the top 10 of the latest Forbes list. So we should look for documents that mention Real Madrid, the top 10, Forbes, and current and former players.\n\nLet's go through the documents:\n\n1. longseal/003000/forbes-list-of-the-world-s-highest-paid"
+    },
+    {
+      "task_id": "longseal-000004",
+      "question": "What is the most recent film to join the top 10 highest-grossing films of all time?",
+      "answer": "Zootopia 2",
+      "positive_doc_ids": [
+        "longseal/004000/list-of-highest-grossing-films-wikipedia-a23483ca.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe need to return the document ids that are most relevant to the query: \"What is the most recent film to join the top 10 highest-grossing films of all time?\" The query is asking for the most recent film that is in the top 10 highest-grossing films. We have many documents that mention top 10 highest-grossing films, but we need to identify which ones are the most recent.\n\nLooking at the documents, we have:\n\n- \"longseal/000004/the-10-highest-grossing-movies-of-all-time-7cedb42c\" (ID:"
+    },
+    {
+      "task_id": "longseal-000005",
+      "question": "What is the current age of the last American experimental physicist to win the Nobel Prize in Physics?",
+      "answer": "83 years old",
+      "positive_doc_ids": [
+        "longseal/005000/list-of-nobel-laureates-in-physics-wikipedia-e162c123.md",
+        "longseal/005001/john-clarke-physicist-wikipedia-dddecb95.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/005000/list-of-nobel-laureates-in-physics-wikipedia-e162c123.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.5,
+      "precision": 1.0,
+      "f1": 0.6666666666666666,
+      "raw_output": "<think>\nFirst, I need to find the current age of the last American experimental physicist to win the Nobel Prize in Physics. I have to look at the relevant documents and identify which ones contain information about Nobel laureates, specifically American experimental physicists.\n\nLet me go through the documents one by one:\n\n1. **longseal/005000/list-of-nobel-laureates-in-physics-wikipedia-e162c123.md**: This is a list of Nobel laureates in Physics. It doesn't mention age or nationality, so I can't extract the age from this.\n\n2. **longseal/005001/john-cl"
+    },
+    {
+      "task_id": "longseal-000006",
+      "question": "How many airlines are members of IATA, the organization that supports airline activity and helps formulate industry policy and standards?",
+      "answer": "377",
+      "positive_doc_ids": [
+        "longseal/006000/iata-current-airline-members-c3109b79.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe need to return only the document ids that are most relevant to the query: \"How many airlines are members of IATA, the organization that supports airline activity and helps formulate industry policy and standards?\"\n\nWe have 15 document ids. We need to rank them by relevance to the query. The query is about the number of airlines members of IATA. So we should look for documents that explicitly mention IATA membership, airline members, or the number of airlines.\n\nLet's go through each document and see if it contains information about IATA membership or the number of airlines:\n\n1. longseal/006000/i"
+    },
+    {
+      "task_id": "longseal-000007",
+      "question": "How many U.S. universities ranked in the top 20 of the latest QS World University Rankings?",
+      "answer": "9",
+      "positive_doc_ids": [
+        "longseal/007000/qs-world-university-rankings-2027-top-global-universities-topuniversities-ca297f6f.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/007000/qs-world-university-rankings-2027-top-global-universities-topuniversities-ca297f6f.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "<think>\nWe are given a query: \"How many U.S. universities ranked in the top 20 of the latest QS World University Rankings?\" and a list of relevant documents. We need to return the document ids that are most relevant to the query.\n\nWe should only return the document ids in the requested XML-like format, without any additional text.\n\nLet's analyze the relevant documents:\n\n1. The document \"longseal/007000/qs-world-university-rankings-2027-top-global-universities-topuniversities-ca297f6f.md\" is about the latest QS World University Rankings 2027"
+    },
+    {
+      "task_id": "longseal-000008",
+      "question": "How many books has Jamie Oliver published since 2020?",
+      "answer": "8",
+      "positive_doc_ids": [
+        "longseal/008000/jamie-oliver-wikipedia-7a194e68.md"
+      ],
+      "returned_doc_ids": [
+        "longseal/008000/jamie-oliver-wikipedia-7a194e68.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "<think>\nWe are given a query: \"How many books has Jamie Oliver published since 2020?\" and a list of candidate documents. We need to return the document ids most relevant to the query. The relevant documents are those that mention Jamie Oliver's publication history, especially since 2020. We should look for documents that have information about the number of books published since 2020.\n\nLet's examine the candidate documents:\n\n1. longseal/008000/jamie-oliver-wikipedia-7a194e68.md: This is a Wikipedia page about Jamie Oliver. It does not provide a specific number of books"
+    },
+    {
+      "task_id": "longseal-000009",
+      "question": "Which company most recently surpassed a $1 trillion market capitalization for the first time in its history?",
+      "answer": "SpaceX",
+      "positive_doc_ids": [
+        "longseal/009000/list-of-public-corporations-by-market-capitalization-wikipedia-03b84071.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "<think>\nWe need to return the document ids that are most relevant to the query: \"Which company most recently surpassed a $1 trillion market capitalization for the first time in its history?\" We have many documents, and we need to select the ones that are most relevant.\n\nLet's analyze the relevant documents:\n\n1. The query is about the company that most recently surpassed a $1 trillion market capitalization for the first time. So we need to find documents that mention companies that have reached $1 trillion market cap, and specifically the most recent one.\n\n2. Relevant documents include:\n   - Document \"longseal/000009/app"
+    }
+  ]
+}
