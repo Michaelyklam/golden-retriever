@@ -11,6 +11,12 @@ from .dataset import RetrievalTask
 SUPPORTED_SUFFIXES = {".md", ".txt", ".rst"}
 TOKEN_RE = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9_-]+")
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+")
+SYNTHETIC_DOMAINS = {
+    "finance": ("FIN", "portfolio", "risk memo", "basis-point threshold"),
+    "legal": ("LEG", "contract", "clause memo", "notice requirement"),
+    "patent": ("PAT", "invention", "claim chart", "embodiment marker"),
+    "web": ("WEB", "site", "crawl note", "canonical-route signal"),
+}
 
 
 @dataclass(frozen=True)
@@ -147,6 +153,48 @@ def write_tasks_jsonl(tasks: list[RetrievalTask], output_path: str | Path) -> No
     with path.open("w", encoding="utf-8") as f:
         for task in tasks:
             f.write(json.dumps(task.model_dump(), ensure_ascii=False, separators=(",", ":")) + "\n")
+
+
+def write_synthetic_domain_corpus(output_root: str | Path, documents_per_domain: int = 150) -> dict[str, int]:
+    """Write a deterministic multi-domain synthetic corpus for scale-up SFT.
+
+    The documents intentionally share domain vocabulary but use unique anchor
+    codes, forcing the model to discriminate exact evidence rather than memorize
+    a few repeated local-doc ids.
+    """
+
+    root = Path(output_root)
+    root.mkdir(parents=True, exist_ok=True)
+    documents = 0
+    for domain, (prefix, subject, memo_kind, signal) in SYNTHETIC_DOMAINS.items():
+        domain_dir = root / domain
+        domain_dir.mkdir(parents=True, exist_ok=True)
+        for index in range(1, documents_per_domain + 1):
+            anchor = f"{prefix}-{index:04d}"
+            near_anchor = f"{prefix}-{index + 1:04d}"
+            shard = (index * 37) % 997
+            text = "\n".join(
+                [
+                    f"# {domain.title()} synthetic record {index:04d}",
+                    "",
+                    f"The {domain} {memo_kind} states that anchor code {anchor} maps to {subject} item {shard:03d} under the {signal}.",
+                    f"A nearby but different {domain} note references anchor code {near_anchor} for contrastive retrieval practice.",
+                    f"The record should be selected only when the query names {anchor} or repeats its exact mapped item {shard:03d}.",
+                    "",
+                ]
+            )
+            (domain_dir / f"{domain}-{index:04d}.md").write_text(text, encoding="utf-8")
+            documents += 1
+    return {"domains": len(SYNTHETIC_DOMAINS), "documents": documents}
+
+
+def corpus_main() -> None:
+    parser = argparse.ArgumentParser(description="Write a deterministic multi-domain synthetic retrieval corpus.")
+    parser.add_argument("--output-root", required=True)
+    parser.add_argument("--documents-per-domain", type=int, default=150)
+    args = parser.parse_args()
+    summary = write_synthetic_domain_corpus(args.output_root, documents_per_domain=args.documents_per_domain)
+    print(json.dumps({**summary, "output_root": args.output_root}, indent=2))
 
 
 def main() -> None:

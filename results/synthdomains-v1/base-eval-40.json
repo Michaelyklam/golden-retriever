@@ -1,0 +1,722 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "adapter": null,
+  "dataset": "data/generated/synthdomains-v1/tasks-eval.jsonl",
+  "eval_limit": 40,
+  "corpus_root": "data/generated/synthdomains-v1/corpus",
+  "mode": "task_candidate_thinking_base",
+  "elapsed_seconds": 96.08537721633911,
+  "generated_tokens": 7680,
+  "summary": {
+    "num_tasks": 40,
+    "final_answer_found": 0.625,
+    "recall": 0.625,
+    "precision": 0.3375,
+    "f1": 0.39761904761904765
+  },
+  "results": [
+    {
+      "task_id": "synthdomains-000004",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0004.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code FIN-0004 mapping to portfolio item 148 under the basis-point threshold.\n\nI have five candidate documents:\n\n1. finance/finance-0004.md\n\n2. finance/finance-0001.md\n\n3. finance/finance-0002.md\n\n4. finance/finance-0003.md\n\n5. finance/finance-0005.md\n\n6. finance/finance-0006.md\n\nI need to check each document to see if it contains evidence for the claim. The claim is specifically about FIN-0004 mapping to 148. So, I should look for documents that mention FIN-0004 or 148 in the context of"
+    },
+    {
+      "task_id": "synthdomains-000724",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0124.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0124.md",
+        "web/web-0001.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0124 mapping to site item 600 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0124.md\">\n\n# Web synthetic record 0124\n\nThe web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.\n\nA nearby but different web note references anchor code WEB-0125 for contrastive retrieval practice.\n\nThe record should be selected only when the query names WEB-0124 or repeats its exact mapped item 600.\n\n2. <Document id=\"web/web-0001.md\">\n\n# Web"
+    },
+    {
+      "task_id": "synthdomains-000162",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0162.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.\"\n\nI need to find the document that contains this specific claim. The claim is about anchor code FIN-0162 mapping to portfolio item 012.\n\nNow, I have candidate documents from the list:\n\n- finance/finance-0162.md: This document states: \"The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.\" That matches exactly.\n\n- finance/finance-0001.md: This maps to portfolio item 037, not 012.\n\n- finance/finance-0002.md: maps to portfolio item 074.\n\n- finance/finance-0003.md: maps to portfolio item 111.\n\n- finance/finance-0004.md: maps to portfolio"
+    },
+    {
+      "task_id": "synthdomains-000446",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0046.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0046 mapping to invention item 705. The relevant clues are that the document should have evidence for this claim, and the document should be selected only when the query names PAT-0046 or repeats its exact mapped item 705.\n\nLooking at the candidate documents:\n\n- patent/patent-0046.md: This document states: \"The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.\" That directly matches the claim. Also, it mentions that the record should be selected only when the query names PAT-0046 or repeats its exact mapped item 705. So, this document contains evidence for"
+    },
+    {
+      "task_id": "synthdomains-000741",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0141 maps to site item 232 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0141.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0141.md",
+        "web/web-0001.md",
+        "web/web-0002.md",
+        "web/web-0003.md",
+        "web/web-0004.md",
+        "web/web-0005.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0141 maps to site item 232 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0141 mapping to site item 232 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0141.md\">\n\n2. <Document id=\"web/web-0001.md\">\n\n3. <Document id=\"web/web-0002.md\">\n\n4. <Document id=\"web/web-0003.md\">\n\n5. <Document id=\"web/web-0004.md\">\n\n6. <Document id=\"web/web-0005.md\">\n\nI need to check which document contains evidence for the claim. The claim is specifically about WEB-0141 mapping to"
+    },
+    {
+      "task_id": "synthdomains-000799",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0199 maps to site item 384 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0199.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0199.md",
+        "web/web-0001.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0199 maps to site item 384 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0199 mapping to site item 384 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0199.md\">\n\n# Web synthetic record 0199\n\nThe web crawl note states that anchor code WEB-0199 maps to site item 384 under the canonical-route signal.\n\nA nearby but different web note references anchor code WEB-0200 for contrastive retrieval practice.\n\nThe record should be selected only when the query names WEB-0199 or repeats its exact mapped item 384.\n\n2. <Document id=\"web/web-0001.md\">\n\n# Web"
+    },
+    {
+      "task_id": "synthdomains-000761",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0161 maps to site item 972 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0161.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0161.md",
+        "web/web-0001.md",
+        "web/web-0002.md",
+        "web/web-0003.md",
+        "web/web-0004.md",
+        "web/web-0005.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0161 maps to site item 972 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0161 mapping to site item 972 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0161.md\">\n\n2. <Document id=\"web/web-0001.md\">\n\n3. <Document id=\"web/web-0002.md\">\n\n4. <Document id=\"web/web-0003.md\">\n\n5. <Document id=\"web/web-0004.md\">\n\n6. <Document id=\"web/web-0005.md\">\n\nI need to check which document contains evidence for the claim. The claim is specifically about WEB-0161 mapping to"
+    },
+    {
+      "task_id": "synthdomains-000716",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0116 maps to site item 304 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0116.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0116.md",
+        "web/web-0001.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0116 maps to site item 304 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0116 mapping to site item 304 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0116.md\">\n\n# Web synthetic record 0116\n\nThe web crawl note states that anchor code WEB-0116 maps to site item 304 under the canonical-route signal.\n\nA nearby but different web note references anchor code WEB-0117 for contrastive retrieval practice.\n\nThe record should be selected only when the query names WEB-0116 or repeats its exact mapped item 304.\n\n2. <Document id=\"web/web-0001.md\">\n\n# Web"
+    },
+    {
+      "task_id": "synthdomains-000746",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0146 maps to site item 417 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0146.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0146.md",
+        "web/web-0001.md",
+        "web/web-0002.md",
+        "web/web-0003.md",
+        "web/web-0004.md",
+        "web/web-0005.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0146 maps to site item 417 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0146 mapping to site item 417 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0146.md\">\n\n2. <Document id=\"web/web-0001.md\">\n\n3. <Document id=\"web/web-0002.md\">\n\n4. <Document id=\"web/web-0003.md\">\n\n5. <Document id=\"web/web-0004.md\">\n\n6. <Document id=\"web/web-0005.md\">\n\nI need to check which document contains evidence for the claim. The claim is specifically about WEB-0146 mapping to"
+    },
+    {
+      "task_id": "synthdomains-000118",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0118 maps to portfolio item 378 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0118.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0118 maps to portfolio item 378 under the basis-point threshold.\"\n\nI need to find the document that contains evidence for this claim. The claim is about FIN-0118 mapping to portfolio item 378.\n\nI have candidate documents from the list:\n\n- finance/finance-0118.md: This document states: \"The finance risk memo states that anchor code FIN-0118 maps to portfolio item 378 under the basis-point threshold.\" That directly matches the claim.\n\n- finance/finance-0001.md: This maps to portfolio item 037, not 378.\n\n- finance/finance-0002.md: maps to portfolio item 074.\n\n- finance/finance-0003.md: maps to portfolio item 111.\n\n- finance/finance-0004.md: maps to portfolio item"
+    },
+    {
+      "task_id": "synthdomains-000012",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0012 maps to portfolio item 444 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0012.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0012 maps to portfolio item 444 under the basis-point threshold.\"\n\nI need to find documents that contain evidence for this claim. The claim is about the finance risk memo stating that anchor code FIN-0012 maps to portfolio item 444 under the basis-point threshold.\n\nI have five candidate documents:\n\n1. finance/finance-0012.md\n\n2. finance/finance-0001.md\n\n3. finance/finance-0002.md\n\n4. finance/finance-0003.md\n\n5. finance/finance-0004.md\n\n6. finance/finance-0005.md\n\nI need to check each document to see if it contains evidence for the claim. The claim is specifically about FIN-0012 mapping to 444. So, I should look for documents that mention FIN-0012 or"
+    },
+    {
+      "task_id": "synthdomains-000567",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0167 maps to invention item 197 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0167.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0167 maps to invention item 197 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0167 mapping to invention item 197. I have candidate documents with their IDs and descriptions.\n\nI should look at each document and see if it contains evidence for the claim. The claim is specifically about PAT-0167 mapping to 197. So, I need to check which documents mention PAT-0167 or 197.\n\nLet's list the documents:\n\n1. patent/patent-0167.md: This document says: \"The patent claim chart states that anchor code PAT-0167 maps to invention item 197 under the embodiment marker.\" So, this directly contains the claim.\n\n2. patent/patent-0001.md: Ment"
+    },
+    {
+      "task_id": "synthdomains-000258",
+      "question": "Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0058 maps to contract item 152 under the notice requirement.",
+      "answer": "The legal clause memo states that anchor code",
+      "positive_doc_ids": [
+        "legal/legal-0058.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0058 maps to contract item 152 under the notice requirement.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code LEG-0058 mapping to contract item 152 under the notice requirement.\n\nI have candidate documents from the list:\n\n- legal/legal-0058.md\n- legal/legal-0001.md\n- legal/legal-0002.md\n- legal/legal-0003.md\n- legal/legal-0004.md\n- legal/legal-0005.md\n\nThe justification for each document is provided. I need to check which documents contain evidence for the claim. The claim is specifically about LEG-0058 mapping to contract item 152.\n\nLooking at the justifications:\n\n- legal/legal-0058.md: \"The legal clause"
+    },
+    {
+      "task_id": "synthdomains-000542",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0142 maps to invention item 269 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0142.md"
+      ],
+      "returned_doc_ids": [
+        "patent/patent-0142.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0142 maps to invention item 269 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0142 mapping to invention item 269. I have candidate documents with their IDs and descriptions.\n\nI should look at each document and see if it contains evidence for the claim. The claim is specifically about PAT-0142 mapping to 269. So, I need to check if any document mentions this mapping or evidence related to it.\n\nLet me review the candidate documents:\n\n1. <Document id=\"patent/patent-0142.md\">\n   - Description: \"The patent claim chart states that anchor code PAT-0142 maps to invention item 269 under the embodiment marker.\"\n   - Justification: \"A nearby but different patent note references"
+    },
+    {
+      "task_id": "synthdomains-000480",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0080 maps to invention item 966 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0080.md"
+      ],
+      "returned_doc_ids": [
+        "patent/patent-0080.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0080 maps to invention item 966 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0080 mapping to invention item 966. I have candidate documents with their IDs and descriptions.\n\nI should look at each document and see if it contains evidence for the claim. The claim is specifically about PAT-0080 mapping to 966. So, I need to check which documents mention PAT-0080 or 966.\n\nLet's review the candidate documents:\n\n1. <Document id=\"patent/patent-0080.md\">\n   - # Patent synthetic record 0080\n   - The patent claim chart states that anchor code PAT-0080 maps to invention item 966 under the embodiment marker.\n   - A nearby but different patent"
+    },
+    {
+      "task_id": "synthdomains-000660",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0060 maps to site item 226 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0060.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0060.md",
+        "web/web-0001.md",
+        "web/web-0002.md",
+        "web/web-0003.md",
+        "web/web-0004.md",
+        "web/web-0005.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0060 maps to site item 226 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0060 mapping to site item 226 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0060.md\">\n\n2. <Document id=\"web/web-0001.md\">\n\n3. <Document id=\"web/web-0002.md\">\n\n4. <Document id=\"web/web-0003.md\">\n\n5. <Document id=\"web/web-0004.md\">\n\n6. <Document id=\"web/web-0005.md\">\n\nI need to check which document contains evidence for the claim. The claim is specifically about WEB-0060 mapping to"
+    },
+    {
+      "task_id": "synthdomains-000391",
+      "question": "Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0191 maps to contract item 088 under the notice requirement.",
+      "answer": "The legal clause memo states that anchor code",
+      "positive_doc_ids": [
+        "legal/legal-0191.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0191 maps to contract item 088 under the notice requirement.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code LEG-0191 mapping to contract item 088 under the notice requirement.\n\nI have candidate documents from the legal/legal-0001 to legal/legal-0005. I need to check which of these documents mention LEG-0191 or contract item 088.\n\nLet me look at each document:\n\n- legal/legal-0001: Mentions LEG-0001, not LEG-0191 or 088.\n\n- legal/legal-0002: Mentions LEG-0002, not LEG-0191 or 088.\n\n- legal/legal-0003: Mentions LEG-0003, not LEG-0191 or"
+    },
+    {
+      "task_id": "synthdomains-000395",
+      "question": "Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0195 maps to contract item 236 under the notice requirement.",
+      "answer": "The legal clause memo states that anchor code",
+      "positive_doc_ids": [
+        "legal/legal-0195.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0195 maps to contract item 236 under the notice requirement.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code LEG-0195 mapping to contract item 236 under the notice requirement.\n\nI have candidate documents from the legal/legal-0001 to legal/legal-0005. I need to check which of these documents mention LEG-0195 or contract item 236.\n\nLet me look at each document:\n\n- legal/legal-0001: Mentions LEG-0001, not LEG-0195 or 236.\n\n- legal/legal-0002: Mentions LEG-0002, not LEG-0195 or 236.\n\n- legal/legal-0003: Mentions LEG-0003, not LEG-0195 or"
+    },
+    {
+      "task_id": "synthdomains-000066",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0066 maps to portfolio item 448 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0066.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0066 maps to portfolio item 448 under the basis-point threshold.\"\n\nI need to find documents that contain evidence for this claim. The claim is about the finance risk memo stating that anchor code FIN-0066 maps to portfolio item 448 under the basis-point threshold.\n\nI have five candidate documents:\n\n1. finance/finance-0066.md\n\n2. finance/finance-0001.md\n\n3. finance/finance-0002.md\n\n4. finance/finance-0003.md\n\n5. finance/finance-0004.md\n\n6. finance/finance-0005.md\n\nI need to check each document to see if it contains evidence for the claim. The claim is specifically about FIN-0066 mapping to 448. So, I should look for documents that mention FIN-0066 or"
+    },
+    {
+      "task_id": "synthdomains-000611",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0011 maps to site item 407 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0011.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0011.md",
+        "web/web-0001.md",
+        "web/web-0002.md",
+        "web/web-0003.md",
+        "web/web-0004.md",
+        "web/web-0005.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0011 maps to site item 407 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0011 mapping to site item 407 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0011.md\">\n\n2. <Document id=\"web/web-0001.md\">\n\n3. <Document id=\"web/web-0002.md\">\n\n4. <Document id=\"web/web-0003.md\">\n\n5. <Document id=\"web/web-0004.md\">\n\n6. <Document id=\"web/web-0005.md\">\n\nI need to check which document contains evidence for the claim. The claim is specifically about WEB-0011 mapping to"
+    },
+    {
+      "task_id": "synthdomains-000762",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0162 maps to site item 012 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0162.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0162.md",
+        "web/web-0001.md",
+        "web/web-0002.md",
+        "web/web-0003.md",
+        "web/web-0004.md",
+        "web/web-0005.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0162 maps to site item 012 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0162 mapping to site item 012 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0162.md\">\n\n2. <Document id=\"web/web-0001.md\">\n\n3. <Document id=\"web/web-0002.md\">\n\n4. <Document id=\"web/web-0003.md\">\n\n5. <Document id=\"web/web-0004.md\">\n\n6. <Document id=\"web/web-0005.md\">\n\nI need to check which document contains evidence for the claim. The claim is specifically about WEB-0162 mapping to"
+    },
+    {
+      "task_id": "synthdomains-000764",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0164 maps to site item 086 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0164.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0164.md",
+        "web/web-0001.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0164 maps to site item 086 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0164 mapping to site item 086 under the canonical-route signal.\n\nI have four candidate documents:\n\n1. <Document id=\"web/web-0164.md\">\n\n# Web synthetic record 0164\n\nThe web crawl note states that anchor code WEB-0164 maps to site item 086 under the canonical-route signal.\n\nA nearby but different web note references anchor code WEB-0165 for contrastive retrieval practice.\n\nThe record should be selected only when the query names WEB-0164 or repeats its exact mapped item 086.\n\n2. <Document id=\"web/web-0001.md\">\n\n# Web"
+    },
+    {
+      "task_id": "synthdomains-000643",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0043 maps to site item 594 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0043.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0043.md",
+        "web/web-0001.md",
+        "web/web-0002.md",
+        "web/web-0003.md",
+        "web/web-0004.md",
+        "web/web-0005.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0043 maps to site item 594 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0043 mapping to site item 594 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0043.md\">\n\n2. <Document id=\"web/web-0001.md\">\n\n3. <Document id=\"web/web-0002.md\">\n\n4. <Document id=\"web/web-0003.md\">\n\n5. <Document id=\"web/web-0004.md\">\n\n6. <Document id=\"web/web-0005.md\">\n\nI need to check which document contains evidence for the claim. The claim is specifically about WEB-0043 mapping to"
+    },
+    {
+      "task_id": "synthdomains-000157",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0157 maps to portfolio item 824 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0157.md"
+      ],
+      "returned_doc_ids": [
+        "finance/finance-0157.md",
+        "finance/finance-0001.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0157 maps to portfolio item 824 under the basis-point threshold.\"\n\nI need to find the document that contains this evidence. The relevant clues are given, and I have candidate documents with their IDs.\n\nThe candidate documents are:\n\n- <Document id=\"finance/finance-0157.md\">\n\n  # Finance synthetic record 0157\n\n  The finance risk memo states that anchor code FIN-0157 maps to portfolio item 824 under the basis-point threshold.\n\n  A nearby but different finance note references anchor code FIN-0158 for contrastive retrieval practice.\n\n  The record should be selected only when the query names FIN-0157 or repeats its exact mapped item 824.\n\n- <Document id=\"finance/finance-0001.md\">\n\n  # Finance synthetic record 0001\n\n  The"
+    },
+    {
+      "task_id": "synthdomains-000113",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0113 maps to portfolio item 193 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0113.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0113 maps to portfolio item 193 under the basis-point threshold.\"\n\nI need to find the document that contains this specific claim. The claim is about FIN-0113 mapping to portfolio item 193.\n\nLooking at the candidate documents:\n\n- Document ID \"finance/finance-0113.md\": It says \"The finance risk memo states that anchor code FIN-0113 maps to portfolio item 193 under the basis-point threshold.\" This directly matches the claim.\n\n- Other documents have different mappings: FIN-0001 to 037, FIN-0002 to 074, etc. So only the document with FIN-0113 is relevant.\n\nThe user also provides clues: \"Find evidence for this claim: The finance risk memo states that anchor code FIN-0113 maps to portfolio item 193 under the"
+    },
+    {
+      "task_id": "synthdomains-000049",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0049 maps to portfolio item 816 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0049.md"
+      ],
+      "returned_doc_ids": [
+        "finance/finance-0049.md",
+        "finance/finance-0001.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0049 maps to portfolio item 816 under the basis-point threshold.\"\n\nI need to find the document that contains this evidence. The relevant clues are given, and I have candidate documents with their IDs and descriptions.\n\nThe candidate documents are:\n\n- <Document id=\"finance/finance-0049.md\">\n\n  # Finance synthetic record 0049\n\n  The finance risk memo states that anchor code FIN-0049 maps to portfolio item 816 under the basis-point threshold.\n\n  A nearby but different finance note references anchor code FIN-0050 for contrastive retrieval practice.\n\n  The record should be selected only when the query names FIN-0049 or repeats its exact mapped item 816.\n\n- <Document id=\"finance/finance-0001.md\">\n\n  # Finance synthetic record 0001\n\n"
+    },
+    {
+      "task_id": "synthdomains-000094",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0094 maps to portfolio item 487 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0094.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0094 maps to portfolio item 487 under the basis-point threshold.\"\n\nI need to find documents that contain evidence for this claim. The claim is about FIN-0094 mapping to portfolio item 487. I have candidate documents from the finance/finance-0001 to finance/finance-0005, but I need to check which ones contain evidence for FIN-0094 mapping to 487.\n\nLooking at the candidate documents:\n\n- finance/finance-0001: mentions FIN-0001 mapping to 037, not 0094.\n\n- finance/finance-0002: mentions FIN-0002 mapping to 074, not 0094.\n\n- finance/finance-0003: mentions FIN-0003 mapping to 111, not 0094.\n\n- finance/finance-000"
+    },
+    {
+      "task_id": "synthdomains-000506",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0106 maps to invention item 931 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0106.md"
+      ],
+      "returned_doc_ids": [
+        "patent/patent-0106.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0106 maps to invention item 931 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0106 mapping to invention item 931. I have candidate documents with their IDs and descriptions.\n\nI should look at each document and see if it contains evidence for the claim. The claim is specifically about PAT-0106 mapping to 931. So, I need to check if any document mentions this mapping or evidence related to it.\n\nLet me review the candidate documents:\n\n1. <Document id=\"patent/patent-0106.md\">\n   - # Patent synthetic record 0106\n   - The patent claim chart states that anchor code PAT-0106 maps to invention item 931 under the embodiment marker.\n   - A nearby but different"
+    },
+    {
+      "task_id": "synthdomains-000522",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0122 maps to invention item 526 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0122.md"
+      ],
+      "returned_doc_ids": [
+        "patent/patent-0122.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0122 maps to invention item 526 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0122 mapping to invention item 526. I have candidate documents with their IDs and descriptions.\n\nI should look at each document and see if it contains evidence for the claim. The claim is specifically about PAT-0122 mapping to 526. So, I need to check if any document mentions this mapping or evidence related to it.\n\nLet me review the candidate documents:\n\n1. <Document id=\"patent/patent-0122.md\">\n   - Description: \"The patent claim chart states that anchor code PAT-0122 maps to invention item 526 under the embodiment marker.\"\n   - Justification: \"A nearby but different patent note references"
+    },
+    {
+      "task_id": "synthdomains-000142",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0142 maps to portfolio item 269 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0142.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0142 maps to portfolio item 269 under the basis-point threshold.\"\n\nI need to find the document that contains this specific claim. The claim is about FIN-0142 mapping to portfolio item 269.\n\nLooking at the candidate documents:\n\n- Document ID \"finance/finance-0142.md\" has the exact claim: \"The finance risk memo states that anchor code FIN-0142 maps to portfolio item 269 under the basis-point threshold.\"\n\n- Other documents have different mappings: FIN-0001 to 037, FIN-0002 to 074, etc.\n\nSo, only the document with ID \"finance/finance-0142.md\" contains the claim.\n\nThe user also provides relevant clues: \"Find evidence for this claim: The finance risk memo states that anchor code FIN-0142 maps"
+    },
+    {
+      "task_id": "synthdomains-000701",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0101 maps to site item 746 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0101.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0101.md",
+        "web/web-0001.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0101 maps to site item 746 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0101 mapping to site item 746 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0101.md\">\n\n# Web synthetic record 0101\n\nThe web crawl note states that anchor code WEB-0101 maps to site item 746 under the canonical-route signal.\n\nA nearby but different web note references anchor code WEB-0102 for contrastive retrieval practice.\n\nThe record should be selected only when the query names WEB-0101 or repeats its exact mapped item 746.\n\n2. <Document id=\"web/web-0001.md\">\n\n# Web"
+    },
+    {
+      "task_id": "synthdomains-000738",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0138 maps to site item 121 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0138.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0138.md",
+        "web/web-0001.md",
+        "web/web-0002.md",
+        "web/web-0003.md",
+        "web/web-0004.md",
+        "web/web-0005.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0138 maps to site item 121 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0138 mapping to site item 121 under the canonical-route signal.\n\nI have five candidate documents:\n\n1. <Document id=\"web/web-0138.md\">\n\n2. <Document id=\"web/web-0001.md\">\n\n3. <Document id=\"web/web-0002.md\">\n\n4. <Document id=\"web/web-0003.md\">\n\n5. <Document id=\"web/web-0004.md\">\n\n6. <Document id=\"web/web-0005.md\">\n\nI need to check which document contains evidence for the claim. The claim is specifically about WEB-0138 mapping to"
+    },
+    {
+      "task_id": "synthdomains-000409",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0009 maps to invention item 333 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0009.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0009 maps to invention item 333 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0009 mapping to invention item 333 under the embodiment marker.\n\nI have five candidate documents:\n\n1. patent/patent-0009.md\n\n2. patent/patent-0001.md\n\n3. patent/patent-0002.md\n\n4. patent/patent-0003.md\n\n5. patent/patent-0004.md\n\n6. patent/patent-0005.md\n\nI need to check each document to see if it contains evidence for the claim. The claim is specifically about PAT-0009 mapping to item 333. So, I should look for documents that mention PAT-0009 or item 333.\n\nLet's"
+    },
+    {
+      "task_id": "synthdomains-000598",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0198 maps to invention item 347 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0198.md"
+      ],
+      "returned_doc_ids": [
+        "patent/patent-0198.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0198 maps to invention item 347 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0198 mapping to invention item 347. I have candidate documents with their IDs and descriptions.\n\nI should look at each document and see if it contains evidence for the claim. The claim is specifically about PAT-0198 mapping to 347. So, I need to check if any document mentions this mapping or evidence related to it.\n\nLet's review the candidate documents:\n\n1. <Document id=\"patent/patent-0198.md\">\n   - Description: \"The patent claim chart states that anchor code PAT-0198 maps to invention item 347 under the embodiment marker.\"\n   - Justification: \"A nearby but different patent note references"
+    },
+    {
+      "task_id": "synthdomains-000439",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0039 maps to invention item 446 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0039.md"
+      ],
+      "returned_doc_ids": [
+        "patent/patent-0039.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0039 maps to invention item 446 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0039 mapping to invention item 446. I have candidate documents with their IDs and descriptions.\n\nI should look at each document and see if it contains evidence for the claim. The claim is specifically about PAT-0039 mapping to item 446. So, I need to check if any document mentions this mapping or evidence related to it.\n\nLet's review the candidate documents:\n\n1. <Document id=\"patent/patent-0039.md\">\n   - Content: \"The patent claim chart states that anchor code PAT-0039 maps to invention item 446 under the embodiment marker.\"\n   - This directly mentions the mapping of PAT-0039"
+    },
+    {
+      "task_id": "synthdomains-000599",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0199 maps to invention item 384 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0199.md"
+      ],
+      "returned_doc_ids": [
+        "patent/patent-0199.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0199 maps to invention item 384 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0199 mapping to invention item 384. I have candidate documents with their IDs and descriptions.\n\nI should look at each document and see if it contains evidence for the claim. The claim is specifically about PAT-0199 mapping to 384. So, I need to check if any document mentions this mapping or evidence related to it.\n\nLet me review the candidate documents:\n\n1. <Document id=\"patent/patent-0199.md\">\n   - Description: \"The patent claim chart states that anchor code PAT-0199 maps to invention item 384 under the embodiment marker.\"\n   - Justification: \"A nearby but different patent note references"
+    },
+    {
+      "task_id": "synthdomains-000270",
+      "question": "Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0070 maps to contract item 596 under the notice requirement.",
+      "answer": "The legal clause memo states that anchor code",
+      "positive_doc_ids": [
+        "legal/legal-0070.md"
+      ],
+      "returned_doc_ids": [],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0070 maps to contract item 596 under the notice requirement.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code LEG-0070 mapping to contract item 596 under the notice requirement.\n\nI have candidate documents from the list:\n\n- legal/legal-0070.md\n- legal/legal-0001.md\n- legal/legal-0002.md\n- legal/legal-0003.md\n- legal/legal-0004.md\n- legal/legal-0005.md\n\nThe user says: \"The record should be selected only when the query names LEG-0070 or repeats its exact mapped item 596.\" So, I need to check if any of these documents mention LEG-0070 or item 596.\n\nLooking at the documents:\n\n"
+    },
+    {
+      "task_id": "synthdomains-000552",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0152 maps to invention item 639 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0152.md"
+      ],
+      "returned_doc_ids": [
+        "patent/patent-0152.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0152 maps to invention item 639 under the embodiment marker.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code PAT-0152 mapping to invention item 639. I have candidate documents with their IDs and descriptions.\n\nI should look at each document and see if it contains evidence for this claim. The claim is specifically about PAT-0152 mapping to 639. So, I need to check which documents mention PAT-0152 or 639.\n\nLet's review the candidate documents:\n\n1. <Document id=\"patent/patent-0152.md\">\n   - Description: \"The patent claim chart states that anchor code PAT-0152 maps to invention item 639 under the embodiment marker.\"\n   - Justification: \"A nearby but different patent note references anchor"
+    },
+    {
+      "task_id": "synthdomains-000776",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0176 maps to site item 530 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0176.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0176.md",
+        "web/web-0001.md",
+        "web/web-0002.md",
+        "web/web-0003.md",
+        "web/web-0004.md",
+        "web/web-0005.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0176 maps to site item 530 under the canonical-route signal.\"\n\nI need to find the document that contains evidence for this claim. The claim is about anchor code WEB-0176 mapping to site item 530 under the canonical-route signal.\n\nI have four candidate documents:\n\n1. <Document id=\"web/web-0176.md\">\n\n2. <Document id=\"web/web-0001.md\">\n\n3. <Document id=\"web/web-0002.md\">\n\n4. <Document id=\"web/web-0003.md\">\n\n5. <Document id=\"web/web-0004.md\">\n\n6. <Document id=\"web/web-0005.md\">\n\nI need to check which document contains evidence for the claim. The claim is specifically about WEB-0176 mapping to"
+    },
+    {
+      "task_id": "synthdomains-000253",
+      "question": "Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0053 maps to contract item 964 under the notice requirement.",
+      "answer": "The legal clause memo states that anchor code",
+      "positive_doc_ids": [
+        "legal/legal-0053.md"
+      ],
+      "returned_doc_ids": [
+        "legal/legal-0053.md",
+        "legal/legal-0001.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "raw_output": "First, the user asks: \"Which document contains evidence for the claim: The legal clause memo states that anchor code LEG-0053 maps to contract item 964 under the notice requirement.\"\n\nI need to find documents that contain evidence for this claim. The claim is about anchor code LEG-0053 mapping to contract item 964 under the notice requirement.\n\nI have five candidate documents from the list:\n\n1. <Document id=\"legal/legal-0053.md\">\n\n# Legal synthetic record 0053\n\nThe legal clause memo states that anchor code LEG-0053 maps to contract item 964 under the notice requirement.\n\nA nearby but different legal note references anchor code LEG-0054 for contrastive retrieval practice.\n\nThe record should be selected only when the query names LEG-0053 or repeats its exact mapped item 964.\n\n2. <Document id=\"legal/legal-0001.md\">\n\n# Legal synthetic record"
+    }
+  ]
+}

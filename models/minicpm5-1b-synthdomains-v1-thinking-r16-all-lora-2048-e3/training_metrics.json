@@ -1,0 +1,15 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "train_file": "data/sft/synthdomains-v1-thinking/train.jsonl",
+  "output_dir": "models/minicpm5-1b-synthdomains-v1-thinking-r16-all-lora-2048-e3",
+  "examples": 640,
+  "epochs": 3,
+  "optimizer_steps": 240,
+  "final_loss": 7.510083833039971e-06,
+  "mean_loss": 0.017442341131716905,
+  "elapsed_seconds": 403.6494221687317,
+  "max_length": 2048,
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "enable_thinking": true
+}

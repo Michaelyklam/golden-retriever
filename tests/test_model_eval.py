@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from golden_retriever.dataset import RetrievalTask
-from golden_retriever.model_eval import evaluate_task_from_text, parse_document_ids, render_corpus_prompt
+from golden_retriever.dataset import EvidenceDocument, RetrievalTask
+from golden_retriever.model_eval import evaluate_task_from_text, parse_document_ids, render_corpus_prompt, render_task_candidate_prompt
 
 
 def test_parse_document_ids_from_context1_output():
@@ -38,6 +38,30 @@ def test_render_corpus_prompt_contains_doc_ids(tmp_path: Path):
     assert '<Document id="doc.md">' in prompt
     assert "Which tool performs hybrid search?" in prompt
     assert "SearchTool performs hybrid search" in prompt
+
+
+def test_render_task_candidate_prompt_only_includes_positive_and_distractors(tmp_path: Path):
+    (tmp_path / "positive.md").write_text("The positive document includes unique anchor POS-1.\n", encoding="utf-8")
+    (tmp_path / "distractor.md").write_text("The distractor document includes nearby anchor DIS-1.\n", encoding="utf-8")
+    (tmp_path / "unused.md").write_text("Unused material must not appear.\n", encoding="utf-8")
+    task = RetrievalTask(
+        task_id="docs-candidates",
+        domain="docs",
+        difficulty=1,
+        hop_count=1,
+        question="Which doc has POS-1?",
+        answer="POS-1",
+        clues=["Find POS-1"],
+        supporting_documents=[EvidenceDocument(doc_id="positive.md", role="positive", document_quotes=["POS-1"], clue_quotes=[])],
+        distractor_documents=[EvidenceDocument(doc_id="distractor.md", role="distractor", document_quotes=["DIS-1"], clue_quotes=[])],
+    )
+
+    prompt = render_task_candidate_prompt(task, tmp_path)
+
+    assert '<Document id="positive.md">' in prompt
+    assert '<Document id="distractor.md">' in prompt
+    assert "unused.md" not in prompt
+    assert "Unused material" not in prompt
 
 
 def test_evaluate_task_from_text_filters_unknown_document_ids(tmp_path: Path):

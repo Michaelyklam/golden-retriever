@@ -1,0 +1,283 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "adapter": "models/minicpm5-1b-synthdomains-v1-thinking-r16-all-lora-2048-e3",
+  "dataset": "data/generated/localdocs-v0/tasks.jsonl",
+  "corpus_root": "data/generated/localdocs-v0/corpus",
+  "mode": "local_peft_full-corpus_thinking",
+  "elapsed_seconds": 96.05493497848511,
+  "summary": {
+    "num_tasks": 12,
+    "final_answer_found": 0.25,
+    "recall": 0.25,
+    "precision": 0.1111111111111111,
+    "f1": 0.13095238095238096
+  },
+  "results": [
+    {
+      "task_id": "localdocs-000001",
+      "question": "Which document contains evidence for the claim: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.",
+      "answer": "A small-model agentic retrieval lab inspired by Chroma's",
+      "positive_doc_ids": [
+        "README.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md",
+        "docs/data-pipeline.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chaining.md",
+        "docs/experience-mitigated.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.\nThe grounded document id is base-smoke/chaining.md.\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.</Justification></Document>\nReturn the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.</Justification></Document>\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.</Justification></Document>\n\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"docs/data-pipeline.md\"><Justification>Contains grounded quote: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.</Justification></Document>\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.</Justification></Document>\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"docs/experience-mitigated.md\"><Justification>Contains grounded quote: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent"
+    },
+    {
+      "task_id": "localdocs-000002",
+      "question": "Which document contains evidence for the claim: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.",
+      "answer": "Synthetic retrieval tasks can be recursively chained by",
+      "positive_doc_ids": [
+        "base_smoke/chaining.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chaining.md",
+        "docs/verification.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.\nThe grounded document id is base-smoke/chaining.md.\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.</Justification></Document>\nReturn the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.</Justification></Document>\nReturn only the grounded document tag, preserving the"
+    },
+    {
+      "task_id": "localdocs-000003",
+      "question": "Which document contains evidence for the claim: It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.",
+      "answer": "It is useful when the retrieval subagent needs",
+      "positive_doc_ids": [
+        "base_smoke/grep.md"
+      ],
+      "returned_doc_ids": [
+        "minicpm5-1b-rtx5060ti.md",
+        "docs/data-pipeline.md",
+        "docs/roadmap.md",
+        "docs/experiments.md",
+        "docs/context-1-notes.md",
+        "base_smoke/grep.md"
+      ],
+      "unknown_doc_ids": [
+        "base-closed-corpus-v0",
+        "base_grande-synagogue-bruxelles.md",
+        "docs/verification.md"
+      ],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "The query asks for the document id, preserving the exact name.\nThe grounded document id is minicpm5-1b-rtx5060ti.md.\nReturn only the document id, preserving the exact quote.\n</think>\n\n<Document id=\"minicpm5-1b-rtx5060ti.md\"><Justification>Contains grounded quote: On what date was this building formally inaugurated? Answer: September 20, 1878</Justification></Document>\n</think>\n\n<Document id=\"base-closed-corpus-v0\"><Justification>Contains grounded quote: On what date was this building formally inaugurated? Answer: September 20, 1878</Justification></Document>\n<Document id=\"docs/data-pipeline.md\"><Justification>Contains grounded quote: On what date was this building formally inaugurated? Answer: September 20, 1878</Justification></Document>\n<Document id=\"docs/roadmap.md\"><Justification>Contains grounded quote: On what date was this building formally inaugurated? Answer: September 20, 1878</Justification></Document>\n<Document id=\"minicpm5-1b-rtx5060ti.md\"><Justification>Contains grounded quote: On what date was this building formally inaugurated? Answer: September 20, 1878</Justification></Document>\n<Document id=\"docs/experiments.md\"><Justification>Contains grounded quote: On what date was this building formally inaugurated? Answer: September 20, 1878</Justification></Document>\n<Document id=\"base_grande-synagogue-bruxelles.md\"><Justification>Contains grounded quote: Inaugurated on 20 September 1878</Justification></Document>\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: Inaugurated on 20 September 1878</Justification></Document>\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: Inaugurated on 20 September 1878</Justification></Document>\n<Document id=\"base_smoke/grep.md\"><Justification>Contains grounded quote: Inaugurated on 20 September 1878</Justification></Document>\n<Document id=\"base_grande-synagogue-bruxelles.md\"><Justification>Contains grounded quote: Inaugurated on 20 September 1878</Justification></Document>\n"
+    },
+    {
+      "task_id": "localdocs-000004",
+      "question": "Which document contains evidence for the claim: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.",
+      "answer": "It helps the retrieval subagent free token budget",
+      "positive_doc_ids": [
+        "base_smoke/prune.md"
+      ],
+      "returned_doc_ids": [
+        "docs/data-pipeline.md",
+        "docs/roadmap.md",
+        "minicpm5-1b-rtx5060ti.md",
+        "docs/experiments.md",
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chaining.md",
+        "docs/data-generation.md",
+        "docs/verification.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.\nThe grounded document id is base-smoke/chaining.md.\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.</Justification></Document>\n<Document id=\"docs/data-pipeline.md\"><Contains grounded quote: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.</Contains><ReturnOnlyDocumentId>docs/data-pipeline.md</ReturnOnlyDocumentId></Document>\n<Document id=\"docs/roadmap.md\"><Contains grounded quote: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.</Contains><ReturnOnlyDocumentId>docs/roadmap.md</ReturnOnlyDocumentId></Document>\n<Document id=\"minicpm5-1b-rtx5060ti.md\"><Contains grounded quote: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.</Contains><ReturnOnlyDocumentId>minicpm5-1b-rtx5060ti.md</ReturnOnlyDocumentId></Document>\n<Document id=\"docs/experiments.md\"><Contains grounded quote: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.</Contains><ReturnOnlyDocumentId>docs/experiments.md</ReturnOnlyDocumentId></Document>\n<Document id=\"docs/context-1-notes.md\"><Contains grounded quote: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.</Contains><ReturnOnlyDocumentId>docs/context-1-notes.md</ReturnOnlyDocumentId></Document>\n<Document id=\"docs/data-generation.md\"><Contains grounded quote: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.</Contains><ReturnOnlyDocumentId>docs/data-generation.md</ReturnOnlyDocumentId></Document>\n<Document id=\"docs/verification.md\"><Contains grounded quote: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.</Contains><ReturnOnlyDocumentId=docs/verification.md</ReturnOnlyDocumentId></"
+    },
+    {
+      "task_id": "localdocs-000005",
+      "question": "Which document contains evidence for the claim: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.",
+      "answer": "ReadDocument opens a specific document when a retrieved",
+      "positive_doc_ids": [
+        "base_smoke/read.md"
+      ],
+      "returned_doc_ids": [
+        "minicpm5-1b-rtx5060ti.md",
+        "docs/roadmap.md"
+      ],
+      "unknown_doc_ids": [
+        "docs-data-pipeline.md",
+        "docs-experiments.md",
+        "docs/confined-notes.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for the document id, preserving the exact name.\nThe grounded document id is minicpm5-1b-rtx5060ti.md.\nReturn only the document id, preserving the exact quote.\n</think>\n\n<Document id=\"minicpm5-1b-rtx5060ti.md\"><Justification>Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Justification></Document>\n</think>\n\n<Document id=\"docs-data-pipeline.md\"><Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Contains><Return only the document id, preserving the exact id.</Return><document_id=\"data/pipeline.md\"><Justification>Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Justification></document_id></Document>\n\n<Document id=\"docs-experiments.md\"><Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Contains><Return only the document id, preserving the exact id.</Return><document_id=\"experiments.md\"><Justification>Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Justification></document_id></Document>\n<Document id=\"minicpm5-1b-rtx5060ti.md\"><Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Contains><Return only the document id, preserving the exact id.</Return><document_id=\"minicpm5-1b-rtx5060ti.md\"><Justification>Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Justification></document_id></Document>\n<Document id=\"docs/roadmap.md\"><Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Contains><Return only the document id, preserving the exact id.</Return><document_id=\"roadmap.md\"><Justification>Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Justification></document_id></Document>\n<Document id=\"docs/confined-notes.md\"><Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Contains><Return only the document id, preserving the exact id.</Return><document_id=\"confined-notes.md\"><"
+    },
+    {
+      "task_id": "localdocs-000006",
+      "question": "Which document contains evidence for the claim: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.",
+      "answer": "It combines lexical and embedding retrieval, then returns",
+      "positive_doc_ids": [
+        "base_smoke/search.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chaining.md",
+        "docs/verification.md",
+        "docs/experience-mitigated-voice-clear.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.\nThe grounded document id is base-smoke/chaining.md.\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.</Justification></Document>\nReturn the grounded document id, preserving the exact id.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n<Document id=\"docs/experience-mitigated-voice-clear.md\"><Justification>Contains grounded quote: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/experience-mitigated-voice-clear.md\"><Justification>Contains"
+    },
+    {
+      "task_id": "localdocs-000007",
+      "question": "Which document contains evidence for the claim: A generated task is accepted only when declared document quotes literally appear in the source document.",
+      "answer": "A generated task is accepted only when declared",
+      "positive_doc_ids": [
+        "base_smoke/verification.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chaining.md",
+        "docs/verification.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: A generated task is accepted only when declared document quotes literally appear in the source document.\nThe grounded document id is base-smoke/chaining.md.\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: A generated task is accepted only when declared document quotes literally appear in the source document.</Justification></Document>\nReturn the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: A generated task is accepted only when declared document quotes literally appear in the source document.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: A generated task is accepted only when declared document quotes literally appear in the source document.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: A generated task is accepted only when declared document quotes literally appear in the source document.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: A generated task is accepted only when declared document quotes literally appear in the source document.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: A generated task is accepted only when declared document quotes literally appear in the source document.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: A generated task is accepted only when declared document quotes literally appear in the source document.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: A generated task is accepted only when declared document quotes literally appear in the source document.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: A generated task is accepted only when"
+    },
+    {
+      "task_id": "localdocs-000008",
+      "question": "Which document contains evidence for the claim: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.",
+      "answer": "The agent loop is useful because many real",
+      "positive_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chaining.md",
+        "docs/verification.md"
+      ],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "The query asks for evidence matching: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.\nThe grounded document id is base-smoke/chaining.md.\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.</Justification></Document>\nReturn the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/verification.md\"><Justification>Contains grounded quote: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n<Document id=\"docs/verification.md\"><Just"
+    },
+    {
+      "task_id": "localdocs-000009",
+      "question": "Which document contains evidence for the claim: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.",
+      "answer": "This is the working data plan for training",
+      "positive_doc_ids": [
+        "docs/data-pipeline.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chaining.md",
+        "docs/experience-mitigated-voice-user-input.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.\nThe grounded document id is base-smoke/chaining.md.\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.</Justification></Document>\nReturn the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"base-smoke/chaining.md\"><Justification>Contains grounded quote: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.</Justification></Document>\nReturn only the grounded document id, preserving the exact string.\n<Document id=\"docs/experience-mitigated-voice-user-input.md\"><Justification>Contains grounded quote: This is the working data plan for training MiniCPM5-1B into"
+    },
+    {
+      "task_id": "localdocs-000010",
+      "question": "Which document contains evidence for the claim: Every row should correspond to a committed repo state and, once training starts, a model artifact or adapter path.",
+      "answer": "Every row should correspond to a committed repo",
+      "positive_doc_ids": [
+        "docs/experiments.md"
+      ],
+      "returned_doc_ids": [
+        "minicpm5-1b-rtx5060ti.md",
+        "docs/roadmap.md"
+      ],
+      "unknown_doc_ids": [
+        "docs-data-pipeline.md",
+        "docs-experiments.md",
+        "minicpm5-1b-bench.md",
+        "docs/confined-notes.md",
+        "docs/grounding-minicpm5-1b-rtx5060ti.md",
+        "docs/quote-grounding.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: Every row should correspond to a committed document id, preserving the exact document id.\nThe grounded document id is minicpm5-1b-rtx5060ti.md.\nReturn only the grounded document id, preserving the exact string.\n</think>\n\n<Document id=\"minicpm5-1b-rtx5060ti.md\"><Justification>Contains grounded document id minicpm5-1b-rtx5060ti.md</Justification></Document>\n</think>\n\n<Document id=\"docs-data-pipeline.md\"><Contains grounded document id minicpm5-1b-rtx5060ti.md</Contains><Return only the grounded document id, preserving the exact string.</Return></Document>\n\n<Document id=\"docs-experiments.md\"><Contains grounded document id minicpm5-1b-rtx5060ti.md</Contains><Return only the grounded document id, preserving the exact string.</Return></Document>\n<Document id=\"minicpm5-1b-bench.md\"><Contains grounded document id minicpm5-1b-rtx5060ti.md</Contains><Return only the grounded document id, preserving the exact string.</Return></Document>\n<Document id=\"docs/roadmap.md\"><Contains grounded document id minicpm5-1b-rtx5060ti.md</Contains><Return only the grounded document id, preserving the exact string.</Return></Document>\n<Document id=\"docs/confined-notes.md\"><Contains grounded document id minicpm5-1b-rtx5060ti.md</Contains><Return only the grounded document id, preserving the exact string.</Return></Document>\n<Document id=\"docs/grounding-minicpm5-1b-rtx5060ti.md\"><Contains grounded document id minicpm5-1b-rtx5060ti.md</Contains><Return only the grounded document id, preserving the exact string.</Return></Document>\n<Document id=\"docs/quote-grounding.md\"><Contains grounded document id minicpm5-1b-rtx5060ti.md</Contains><Return only the grounded document id, preserving the exact string.</Return></Document>\n<Document id=\"docs/confined-notes.md\"><Contains grounded document id minicpm5-1b-rtx506"
+    },
+    {
+      "task_id": "localdocs-000011",
+      "question": "Which document contains evidence for the claim: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.",
+      "answer": "> **For Hermes:** Use subagent-driven-development skill to implement",
+      "positive_doc_ids": [
+        "docs/roadmap.md"
+      ],
+      "returned_doc_ids": [
+        "base_smoke/chaining.md",
+        "docs/data-pipeline.md",
+        "minicpm5-1b-rtx5060ti.md",
+        "docs/roadmap.md",
+        "docs/experiments.md",
+        "docs/context-1-notes.md"
+      ],
+      "unknown_doc_ids": [
+        "docs/verification.md",
+        "docs/data-generation.md",
+        "docs/grounding-chains.md"
+      ],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "raw_output": "The query asks for evidence matching: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.\nThe grounded document id is base_smoke/chaining.md.\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base_smoke/chaining.md\"><Justification>Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Justification></Document>\n<Document id=\"docs/data-pipeline.md\"><Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Contains></Document>\n<Document id=\"minicpm5-1b-rtx5060ti.md\"><Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Contains></Document>\n<Document id=\"docs/roadmap.md\"><Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Contains></Document>\n<Document id=\"docs/experiments.md\"><Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Contains></Document>\n<Document id=\"docs/context-1-notes.md\"><Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Contains></Document>\n<Document id=\"docs/verification.md\"><Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Contains></Document>\n<Document id=\"docs/data-generation.md\"><Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Contains></Document>\n<Document id=\"docs/grounding-chains.md><Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Contains></Document>\n<Document id=\"base_smoke/chaining.md\"><Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Contains></Document>\n<Document id=\"minicpm5-1b-rtx5060ti.md\"><Contains grounded quote: > **For Hermes:** Use subagent-driven"
+    },
+    {
+      "task_id": "localdocs-000012",
+      "question": "Which document contains evidence for the claim: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).",
+      "answer": "Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver",
+      "positive_doc_ids": [
+        "minicpm5-1b-rtx5060ti.md"
+      ],
+      "returned_doc_ids": [
+        "docs/context-1-notes.md",
+        "docs/data-pipeline.md"
+      ],
+      "unknown_doc_ids": [
+        "base-smoke/chains.md"
+      ],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).\nThe grounded document id is base-smoke/chains.md.\nReturn only the grounded document id, preserving the exact name.\n</think>\n\n<Document id=\"base-smoke/chains.md\"><Justification>Contains grounded quote: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).</Justification></Document>\nReturn the grounded document id, preserving the exact id.\n</think>\n\n<Document id=\"base-smoke/chains.md\"><Justification>Contains grounded quote: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).</Justification></Document>\nReturn only the grounded document tag, preserving the exact id.\n</think>\n\n<Document id=\"base-smoke/chains.md\"><Justification>Contains grounded quote: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).</Justification></Document>\nReturn only the grounded document id, preserving the exact id.\n</think>\n\n<Document id=\"docs/context-1-notes.md\"><Justification>Contains grounded quote: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).</Justification></Document>\nReturn only the grounded document id, preserving the exact id.\n</think>\n\n<Document id=\"docs/data-pipeline.md\"><Justification>Contains grounded quote: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).</Justification></Document>\nReturn only the grounded document id, preserving the exact id.\n</think>\n\n<Document id=\"base-smoke/chains.md\"><Justification>Contains grounded quote: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).</Justification></Document>\nReturn only the grounded document id, preserving"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from .dataset import RetrievalTask, load_jsonl
-from .model_eval import SYSTEM_PROMPT, render_corpus_prompt
+from .model_eval import SYSTEM_PROMPT, render_corpus_prompt, render_task_candidate_prompt
 
 
 def _compact_reason(text: str, max_chars: int = 180) -> str:
@@ -49,7 +49,20 @@ def render_gold_completion(task: RetrievalTask, include_thinking: bool = False) 
     return completion
 
 
-def build_sft_examples(tasks: list[RetrievalTask], corpus_root: str | Path, include_thinking: bool = False) -> list[dict[str, Any]]:
+def _render_prompt(task: RetrievalTask, corpus_root: str | Path, prompt_scope: str) -> str:
+    if prompt_scope == "full-corpus":
+        return render_corpus_prompt(task, corpus_root)
+    if prompt_scope == "task-candidates":
+        return render_task_candidate_prompt(task, corpus_root)
+    raise ValueError(f"Unsupported prompt scope: {prompt_scope}")
+
+
+def build_sft_examples(
+    tasks: list[RetrievalTask],
+    corpus_root: str | Path,
+    include_thinking: bool = False,
+    prompt_scope: str = "full-corpus",
+) -> list[dict[str, Any]]:
     """Build chat-format SFT examples from retrieval tasks.
 
     The user prompt is intentionally rendered with the same helper as the eval
@@ -64,7 +77,7 @@ def build_sft_examples(tasks: list[RetrievalTask], corpus_root: str | Path, incl
                 "task_id": task.task_id,
                 "messages": [
                     {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": render_corpus_prompt(task, corpus_root)},
+                    {"role": "user", "content": _render_prompt(task, corpus_root, prompt_scope)},
                     {"role": "assistant", "content": render_gold_completion(task, include_thinking=include_thinking)},
                 ],
             }
@@ -87,12 +100,18 @@ def main() -> None:
     parser.add_argument("--output", required=True)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--include-thinking", action="store_true")
+    parser.add_argument("--prompt-scope", choices=["full-corpus", "task-candidates"], default="full-corpus")
     args = parser.parse_args()
 
     tasks = load_jsonl(args.dataset)
     if args.limit is not None:
         tasks = tasks[: args.limit]
-    examples = build_sft_examples(tasks, args.corpus_root, include_thinking=args.include_thinking)
+    examples = build_sft_examples(
+        tasks,
+        args.corpus_root,
+        include_thinking=args.include_thinking,
+        prompt_scope=args.prompt_scope,
+    )
     write_sft_jsonl(examples, args.output)
     print(json.dumps({"examples": len(examples), "output": args.output}, indent=2))
 

@@ -9,3 +9,11 @@ build/
 .env
 .env.*
 .DS_Store
+
+# Model weight artifacts are too large for git/GitHub.
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.gguf
+models/**/adapter_model.safetensors

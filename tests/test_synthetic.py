@@ -1,7 +1,13 @@
 from pathlib import Path
 
 from golden_retriever.dataset import load_jsonl, validate_dataset
-from golden_retriever.synthetic import extract_fact_candidates, generate_tasks, select_distractors, write_tasks_jsonl
+from golden_retriever.synthetic import (
+    extract_fact_candidates,
+    generate_tasks,
+    select_distractors,
+    write_synthetic_domain_corpus,
+    write_tasks_jsonl,
+)
 
 
 def test_extract_fact_candidates_uses_substantive_sentences(tmp_path: Path):
@@ -53,6 +59,19 @@ def test_extract_fact_candidates_can_take_multiple_per_document(tmp_path: Path):
         "First substantive sentence has enough length to become one candidate.",
         "Second substantive sentence also has enough length to become another candidate.",
     ]
+
+
+def test_write_synthetic_domain_corpus_creates_many_distinct_documents(tmp_path: Path):
+    corpus = tmp_path / "corpus"
+
+    summary = write_synthetic_domain_corpus(corpus, documents_per_domain=2)
+
+    assert summary == {"domains": 4, "documents": 8}
+    docs = sorted(p.relative_to(corpus).as_posix() for p in corpus.rglob("*.md"))
+    assert docs[:2] == ["finance/finance-0001.md", "finance/finance-0002.md"]
+    first = (corpus / "finance" / "finance-0001.md").read_text(encoding="utf-8")
+    assert "FIN-0001" in first
+    assert "anchor code" in first
 
 
 def test_generate_tasks_write_and_validate(tmp_path: Path):

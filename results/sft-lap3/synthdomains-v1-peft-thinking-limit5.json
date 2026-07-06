@@ -1,0 +1,102 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "adapter": "models/minicpm5-1b-synthdomains-v1-thinking-r16-all-lora-2048-e3",
+  "dataset": "data/generated/synthdomains-v1/tasks-eval.jsonl",
+  "corpus_root": "data/generated/synthdomains-v1/corpus",
+  "mode": "local_peft_task-candidates_thinking",
+  "elapsed_seconds": 35.52300691604614,
+  "summary": {
+    "num_tasks": 5,
+    "final_answer_found": 1.0,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0
+  },
+  "results": [
+    {
+      "task_id": "synthdomains-000004",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0004.md"
+      ],
+      "returned_doc_ids": [
+        "finance/finance-0004.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "The query asks for evidence matching: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.\nThe grounded supporting document id is finance/finance-0004.md.\nDistractors considered but rejected: finance/finance-0001.md, finance/finance-0002.md, finance/finance-0003.md.\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0004.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.</Justification></Document>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0004.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.</Justification></Document>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0004.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.</Justification></Document>\n</think>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0004.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.</Justification></Document>\n</think>\n</think>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0004.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.</Justification></Document>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0004.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0004 maps to portfolio item 148 under the basis-point threshold.</Justification></Document>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-000"
+    },
+    {
+      "task_id": "synthdomains-000724",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0124.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0124.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "The query asks for evidence matching: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.\nThe grounded supporting document id is web/web-0124.md.\nDistractors considered but rejected: web/web-0001.md, web/web-0002.md, web/web-0003.md.\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0124.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.</Justification></Document>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0124.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.</Justification></Document>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0124.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.</Justification></Document>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0124.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.</Justification></Document>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0124.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.</Justification></Document>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0124.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0124 maps to site item 600 under the canonical-route signal.</Justification></Document>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0124.md\"><Justification>Contains grounded quote: The web crawl note states"
+    },
+    {
+      "task_id": "synthdomains-000162",
+      "question": "Which document contains evidence for the claim: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.",
+      "answer": "The finance risk memo states that anchor code",
+      "positive_doc_ids": [
+        "finance/finance-0162.md"
+      ],
+      "returned_doc_ids": [
+        "finance/finance-0162.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "The query asks for evidence matching: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.\nThe grounded supporting document id is finance/finance-0162.md.\nDistractors considered but rejected: finance/finance-0001.md, finance/finance-0002.md, finance/finance-0003.md.\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0162.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.</Justification></Document>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0162.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.</Justification></Document>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0162.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.</Justification></Document>\n</think>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0162.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.</Justification></Document>\n</think>\n</think>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0162.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.</Justification></Document>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-0162.md\"><Justification>Contains grounded quote: The finance risk memo states that anchor code FIN-0162 maps to portfolio item 012 under the basis-point threshold.</Justification></Document>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"finance/finance-016"
+    },
+    {
+      "task_id": "synthdomains-000446",
+      "question": "Which document contains evidence for the claim: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.",
+      "answer": "The patent claim chart states that anchor code",
+      "positive_doc_ids": [
+        "patent/patent-0046.md"
+      ],
+      "returned_doc_ids": [
+        "patent/patent-0046.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "The query asks for evidence matching: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.\nThe grounded supporting document id is patent/patent-0046.md.\nDistractors considered but rejected: patent/patent-0001.md, patent/patent-0002.md, patent/patent-0003.md.\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"patent/patent-0046.md\"><Justification>Contains grounded quote: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.</Justification></Document>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"patent/patent-0046.md\"><Justification>Contains grounded quote: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.</Justification></Document>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"patent/patent-0046.md\"><Justification>Contains grounded quote: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.</Justification></Document>\n</think>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"patent/patent-0046.md\"><Justification>Contains grounded quote: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.</Justification></Document>\n</think>\n</think>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"patent/patent-0046.md\"><Justification>Contains grounded quote: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.</Justification></Document>\n</think>\n</think>\n</think>\n</think>\n</think>\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"patent/patent-0046.md\"><Justification>Contains grounded quote: The patent claim chart states that anchor code PAT-0046 maps to invention item 705 under the embodiment marker.</Justification></Document>\n</think>\n</think>\n</think>\n</think>\nReturn only the"
+    },
+    {
+      "task_id": "synthdomains-000741",
+      "question": "Which document contains evidence for the claim: The web crawl note states that anchor code WEB-0141 maps to site item 232 under the canonical-route signal.",
+      "answer": "The web crawl note states that anchor code",
+      "positive_doc_ids": [
+        "web/web-0141.md"
+      ],
+      "returned_doc_ids": [
+        "web/web-0141.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "The query asks for evidence matching: The web crawl note states that anchor code WEB-0141 maps to site item 232 under the canonical-route signal.\nThe grounded supporting document id is web/web-0141.md.\nDistractors considered but rejected: web/web-0001.md, web/web-0002.md, web/web-0003.md.\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0141.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0141 maps to site item 232 under the canonical-route signal.</Justification></Document>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0141.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0141 maps to site item 232 under the canonical-route signal.</Justification></Document>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0141.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0141 maps to site item 232 under the canonical-route signal.</Justification></Document>\n</think>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0141.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0141 maps to site item 232 under the canonical-route signal.</Justification></Document>\n</think>\n</think>\n</think>\n</think>\n\nReturn only the supporting document tag, preserving the exact id.\n</think>\n\n<Document id=\"web/web-0141.md\"><Justification>Contains grounded quote: The web crawl note states that anchor code WEB-0141 maps to site item 232 under the canonical-route signal.</Justification></Document>\n</think>\n</think>\n</think>\n</think>\n</think>\nReturn only the supporting document tag, preserving the exact id.\nReturn only the supporting document tag, preserving the exact id.\nReturn only the supporting document tag, preserving the exact id.\nReturn only the supporting document tag, preserving the exact id.\nReturn only the supporting document tag, preserving the exact id.\nReturn only the supporting document tag, preserving the exact id.\nReturn only the supporting document tag, preserving"
+    }
+  ]
+}

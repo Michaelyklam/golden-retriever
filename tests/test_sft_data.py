@@ -62,6 +62,22 @@ def test_build_sft_examples_can_include_thinking_targets(tmp_path: Path):
     assert examples[0]["messages"][2]["content"].startswith("<think>")
 
 
+def test_build_sft_examples_can_use_task_candidate_prompt_scope(tmp_path: Path):
+    corpus = tmp_path / "corpus"
+    corpus.mkdir()
+    (corpus / "docs").mkdir()
+    (corpus / "docs" / "search.md").write_text("SearchTool performs hybrid keyword and semantic matching.\n", encoding="utf-8")
+    (corpus / "docs" / "grep.md").write_text("GrepTool performs regex matching.\n", encoding="utf-8")
+    (corpus / "unused.md").write_text("Unused document text should not appear.\n", encoding="utf-8")
+
+    examples = build_sft_examples([_task()], corpus, prompt_scope="task-candidates")
+
+    prompt = examples[0]["messages"][1]["content"]
+    assert '<Document id="docs/search.md">' in prompt
+    assert '<Document id="docs/grep.md">' in prompt
+    assert "unused.md" not in prompt
+
+
 def test_build_sft_examples_matches_eval_prompt_shape(tmp_path: Path):
     corpus = tmp_path / "corpus"
     corpus.mkdir()

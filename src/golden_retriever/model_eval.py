@@ -72,6 +72,33 @@ def render_corpus_prompt(task: RetrievalTask, corpus_root: str | Path, max_chars
     )
 
 
+def render_task_candidate_prompt(task: RetrievalTask, corpus_root: str | Path, max_chars_per_doc: int = 6000) -> str:
+    """Render only the positive + distractor candidate documents for a task."""
+
+    corpus_by_id = dict(_load_corpus_documents(corpus_root))
+    ordered_ids: list[str] = []
+    for doc in [*task.supporting_documents, *task.distractor_documents]:
+        if doc.doc_id not in ordered_ids:
+            ordered_ids.append(doc.doc_id)
+    rendered_docs = []
+    for doc_id in ordered_ids:
+        if doc_id not in corpus_by_id:
+            continue
+        rendered_docs.append(f'<Document id="{doc_id}">\n{corpus_by_id[doc_id][:max_chars_per_doc]}\n</Document>')
+    return "\n\n".join(
+        [
+            f"Query: {task.question}",
+            "Relevant clues:",
+            *[f"- {clue}" for clue in task.clues],
+            "",
+            "Candidate documents:",
+            *rendered_docs,
+            "",
+            "Return only the supporting document ids in the requested XML-like format. Do not return distractors.",
+        ]
+    )
+
+
 def call_openai_compatible(
     base_url: str,
     model: str,
@@ -139,6 +166,14 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _render_prompt_by_scope(task: RetrievalTask, corpus_root: str | Path, prompt_scope: str) -> str:
+    if prompt_scope == "full-corpus":
+        return render_corpus_prompt(task, corpus_root)
+    if prompt_scope == "task-candidates":
+        return render_task_candidate_prompt(task, corpus_root)
+    raise ValueError(f"Unsupported prompt scope: {prompt_scope}")
+
+
 def evaluate_dataset(
     dataset_path: str | Path,
     corpus_root: str | Path,
@@ -146,6 +181,7 @@ def evaluate_dataset(
     model: str,
     limit: int | None = None,
     max_tokens: int = 2048,
+    prompt_scope: str = "full-corpus",
 ) -> dict[str, Any]:
     tasks = load_jsonl(dataset_path)
     if limit is not None:
@@ -153,7 +189,7 @@ def evaluate_dataset(
     results: list[dict[str, Any]] = []
     started = time.time()
     for task in tasks:
-        prompt = render_corpus_prompt(task, corpus_root)
+        prompt = _render_prompt_by_scope(task, corpus_root, prompt_scope)
         output = call_openai_compatible(base_url=base_url, model=model, prompt=prompt, max_tokens=max_tokens)
         results.append(evaluate_task_from_text(task, corpus_root, output))
     elapsed = time.time() - started
@@ -161,7 +197,81 @@ def evaluate_dataset(
         "model": model,
         "dataset": str(dataset_path),
         "corpus_root": str(corpus_root),
-        "mode": "closed_corpus_selection_baseline",
+        "mode": f"openai_compatible_{prompt_scope}",
+        "elapsed_seconds": elapsed,
+        "summary": summarize_results(results),
+        "results": results,
+    }
+
+
+def evaluate_local_peft_dataset(
+    dataset_path: str | Path,
+    corpus_root: str | Path,
+    model: str,
+    adapter: str | Path,
+    limit: int | None = None,
+    max_new_tokens: int = 768,
+    prompt_scope: str = "task-candidates",
+    enable_thinking: bool = False,
+    dtype: str = "bfloat16",
+) -> dict[str, Any]:
+    """Evaluate a PEFT LoRA adapter directly without an OpenAI-compatible server."""
+
+    import torch
+    from peft import PeftModel
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
+    tasks = load_jsonl(dataset_path)
+    if limit is not None:
+        tasks = tasks[:limit]
+
+    tokenizer = AutoTokenizer.from_pretrained(adapter, trust_remote_code=True)
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    torch_dtype = torch.bfloat16 if dtype == "bfloat16" else torch.float16
+    base_model = AutoModelForCausalLM.from_pretrained(
+        model,
+        trust_remote_code=True,
+        torch_dtype=torch_dtype,
+        device_map={"": 0} if torch.cuda.is_available() else None,
+    )
+    loaded_model = PeftModel.from_pretrained(base_model, adapter)
+    loaded_model.eval()
+    device = next(loaded_model.parameters()).device
+
+    results: list[dict[str, Any]] = []
+    started = time.time()
+    generation_kwargs = {
+        "max_new_tokens": max_new_tokens,
+        "do_sample": False,
+        "pad_token_id": tokenizer.pad_token_id,
+        "eos_token_id": tokenizer.eos_token_id,
+    }
+    for task in tasks:
+        prompt = _render_prompt_by_scope(task, corpus_root, prompt_scope)
+        template_kwargs = {"enable_thinking": True} if enable_thinking else {}
+        prompt_text = tokenizer.apply_chat_template(
+            [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": prompt},
+            ],
+            tokenize=False,
+            add_generation_prompt=True,
+            **template_kwargs,
+        )
+        encoded = tokenizer(prompt_text, return_tensors="pt", add_special_tokens=False).to(device)
+        with torch.no_grad():
+            generated = loaded_model.generate(**encoded, **generation_kwargs)
+        continuation_ids = generated[0][encoded["input_ids"].shape[-1] :]
+        output = tokenizer.decode(continuation_ids, skip_special_tokens=True)
+        results.append(evaluate_task_from_text(task, corpus_root, output))
+    elapsed = time.time() - started
+    return {
+        "model": model,
+        "adapter": str(adapter),
+        "dataset": str(dataset_path),
+        "corpus_root": str(corpus_root),
+        "mode": f"local_peft_{prompt_scope}_{'thinking' if enable_thinking else 'no_thinking'}",
         "elapsed_seconds": elapsed,
         "summary": summarize_results(results),
         "results": results,
@@ -174,19 +284,37 @@ def main() -> None:
     parser.add_argument("--corpus-root", required=True)
     parser.add_argument("--base-url", default="http://127.0.0.1:8000/v1")
     parser.add_argument("--model", default="openbmb/MiniCPM5-1B")
+    parser.add_argument("--adapter", help="Optional PEFT adapter path. When set, evaluate locally instead of via --base-url.")
     parser.add_argument("--output", required=True)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--max-tokens", type=int, default=2048)
+    parser.add_argument("--prompt-scope", choices=["full-corpus", "task-candidates"], default="full-corpus")
+    parser.add_argument("--enable-thinking", action="store_true")
+    parser.add_argument("--dtype", choices=["bfloat16", "float16"], default="bfloat16")
     args = parser.parse_args()
 
-    report = evaluate_dataset(
-        dataset_path=args.dataset,
-        corpus_root=args.corpus_root,
-        base_url=args.base_url,
-        model=args.model,
-        limit=args.limit,
-        max_tokens=args.max_tokens,
-    )
+    if args.adapter:
+        report = evaluate_local_peft_dataset(
+            dataset_path=args.dataset,
+            corpus_root=args.corpus_root,
+            model=args.model,
+            adapter=args.adapter,
+            limit=args.limit,
+            max_new_tokens=args.max_tokens,
+            prompt_scope=args.prompt_scope,
+            enable_thinking=args.enable_thinking,
+            dtype=args.dtype,
+        )
+    else:
+        report = evaluate_dataset(
+            dataset_path=args.dataset,
+            corpus_root=args.corpus_root,
+            base_url=args.base_url,
+            model=args.model,
+            limit=args.limit,
+            max_tokens=args.max_tokens,
+            prompt_scope=args.prompt_scope,
+        )
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(report, indent=2), encoding="utf-8")

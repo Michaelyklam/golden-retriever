@@ -1,0 +1,221 @@
+{
+  "model": "openbmb/MiniCPM5-1B",
+  "adapter": "models/minicpm5-1b-mixed-synthdomains-localdocs-thinking-lap4-r16-all-lora-4096-e3",
+  "dataset": "data/generated/localdocs-v0/tasks.jsonl",
+  "corpus_root": "data/generated/localdocs-v0/corpus",
+  "mode": "local_peft_full-corpus_thinking",
+  "elapsed_seconds": 29.789678812026978,
+  "summary": {
+    "num_tasks": 12,
+    "final_answer_found": 0.08333333333333333,
+    "recall": 0.08333333333333333,
+    "precision": 0.08333333333333333,
+    "f1": 0.08333333333333333
+  },
+  "results": [
+    {
+      "task_id": "localdocs-000001",
+      "question": "Which document contains evidence for the claim: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.",
+      "answer": "A small-model agentic retrieval lab inspired by Chroma's",
+      "positive_doc_ids": [
+        "README.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": true,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "raw_output": "The query asks for evidence matching: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval\u2026\nThe grounded document id is README.md.\nReturn only the ranked document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: A small-model agentic retrieval lab inspired by Chroma's Context-1 research, targeting MiniCPM5-1B as a fast retrieval subagent that can run many workers in parallel.</Justification></Document>\n\n\n\n\n\n"
+    },
+    {
+      "task_id": "localdocs-000002",
+      "question": "Which document contains evidence for the claim: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.",
+      "answer": "Synthetic retrieval tasks can be recursively chained by",
+      "positive_doc_ids": [
+        "base_smoke/chaining.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a\u2026\nThe grounded document id is README.md.\nReturn only the ranked document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: Synthetic retrieval tasks can be recursively chained by using the answer of one task as a bridge into a new task with a new final answer.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<Document id=\"base_sm"
+    },
+    {
+      "task_id": "localdocs-000003",
+      "question": "Which document contains evidence for the claim: It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.",
+      "answer": "It is useful when the retrieval subagent needs",
+      "positive_doc_ids": [
+        "base_smoke/grep.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similari\u2026\nThe grounded document id is README.md.\nReturn only the document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: It is useful when the retrieval subagent needs exact keywords, symbols, names, or phrases rather than semantic similarity.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\n\n\nThe query asks for evidence matching: It is useful when the retrieval subagent"
+    },
+    {
+      "task_id": "localdocs-000004",
+      "question": "Which document contains evidence for the claim: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.",
+      "answer": "It helps the retrieval subagent free token budget",
+      "positive_doc_ids": [
+        "base_smoke/prune.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.\nThe grounded document id is README.md.\nReturn only the document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: It helps the retrieval subagent free token budget while preserving the unpruned trajectory for evaluation.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\n\n\n<think>\nThe query asks for evidence matching: It helps the retrieval subagent free token budget while preserving the unpruned"
+    },
+    {
+      "task_id": "localdocs-000005",
+      "question": "Which document contains evidence for the claim: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.",
+      "answer": "ReadDocument opens a specific document when a retrieved",
+      "positive_doc_ids": [
+        "base_smoke/read.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.\nThe grounded document id is README.md.\nReturn only the document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\nThe query asks for evidence matching: ReadDocument opens a specific document when a retrieved snippet looks promising but incomplete.\nThe grounded document id is README.md.\nReturn only the"
+    },
+    {
+      "task_id": "localdocs-000006",
+      "question": "Which document contains evidence for the claim: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.",
+      "answer": "It combines lexical and embedding retrieval, then returns",
+      "positive_doc_ids": [
+        "base_smoke/search.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.\nThe grounded document id is README.md.\nReturn only the document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\n\n\nThe query asks for evidence matching: It combines lexical and embedding retrieval, then returns promising chunks for the agent to inspect.\nThe grounded document id"
+    },
+    {
+      "task_id": "localdocs-000007",
+      "question": "Which document contains evidence for the claim: A generated task is accepted only when declared document quotes literally appear in the source document.",
+      "answer": "A generated task is accepted only when declared",
+      "positive_doc_ids": [
+        "base_smoke/verification.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: A generated task is accepted only when declared document quotes literally appear in the source document.\nThe grounded document id is README.md.\nReturn only the document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: A generated task is accepted only when declared document quotes literally appear in the source document.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\n\n\n<think>\nThe query asks for evidence matching: A generated task is accepted only when declared document quotes literally appear in the source document.\nThe grounded"
+    },
+    {
+      "task_id": "localdocs-000008",
+      "question": "Which document contains evidence for the claim: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.",
+      "answer": "The agent loop is useful because many real",
+      "positive_doc_ids": [
+        "docs/context-1-notes.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what t\u2026\nThe grounded document id is README.md.\nReturn only the ranked document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: The agent loop is useful because many real queries require multi-hop retrieval: the result of one search informs what to search next.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\n\n\nThe query asks for evidence matching: The agent loop is useful because"
+    },
+    {
+      "task_id": "localdocs-000009",
+      "question": "Which document contains evidence for the claim: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.",
+      "answer": "This is the working data plan for training",
+      "positive_doc_ids": [
+        "docs/data-pipeline.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.\nThe grounded document id is README.md.\nReturn only the document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: This is the working data plan for training MiniCPM5-1B into a fast retrieval subagent.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\n\n\nThe query asks for evidence matching: This is the working data plan for training MiniCPM"
+    },
+    {
+      "task_id": "localdocs-000010",
+      "question": "Which document contains evidence for the claim: Every row should correspond to a committed repo state and, once training starts, a model artifact or adapter path.",
+      "answer": "Every row should correspond to a committed repo",
+      "positive_doc_ids": [
+        "docs/experiments.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: Every row should correspond to a committed repo state and, once training starts, a model artifact or adapter path.\nThe grounded relevant document id is README.md.\nReturn only the document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: Every row should correspond to a committed repo state and, once training starts, a model artifact or adapter path.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\n\n\nThe query asks for evidence matching: Every row should correspond to a committed repo state and"
+    },
+    {
+      "task_id": "localdocs-000011",
+      "question": "Which document contains evidence for the claim: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.",
+      "answer": "> **For Hermes:** Use subagent-driven-development skill to implement",
+      "positive_doc_ids": [
+        "docs/roadmap.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.\nThe grounded document id is README.md.\nReturn only the document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.</Justification></Document>\n\n\n\n\n\n\n\n\n\n\n\n\nThe query asks for evidence matching: > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by"
+    },
+    {
+      "task_id": "localdocs-000012",
+      "question": "Which document contains evidence for the claim: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).",
+      "answer": "Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver",
+      "positive_doc_ids": [
+        "minicpm5-1b-rtx5060ti.md"
+      ],
+      "returned_doc_ids": [
+        "README.md"
+      ],
+      "unknown_doc_ids": [],
+      "final_answer_found": false,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "raw_output": "The query asks for evidence matching: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159`\u2026\nThe grounded document id is README.md.\nReturn only the document tag, preserving the exact id.\n</think>\n\n<Document id=\"README.md\"><Justification>Contains grounded quote: Note: `nvidia-smi` initially failed with a loaded-kernel/userland driver mismatch (`580.142` kernel module vs `580.159` userland).</Justification></Document>\n\n\n\n\n\n\n"
+    }
+  ]
+}
