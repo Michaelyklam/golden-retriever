@@ -48,17 +48,18 @@ This repo is the initial scaffold:
 
 ![Model progression](assets/metrics-progression.svg)
 
-Tracked in [`docs/experiments.md`](docs/experiments.md). The graph shows local proxy benchmarks; Context-1 parity still requires matching public-suite/tool-loop adapters, not only synthetic task-candidate success.
+Tracked in [`docs/experiments.md`](docs/experiments.md). The graph shows local proxy smoke/regression benchmarks only; Context-1 parity now tracks full public-suite/tool-loop adapters. See [`docs/context-1-source-inventory.md`](docs/context-1-source-inventory.md) and [`docs/plans/2026-07-06-context-1-full-scale-parity.md`](docs/plans/2026-07-06-context-1-full-scale-parity.md).
 
 ### Context-1 parity benchmark matrix
 
 | Suite | Status | Notes |
 |---|---|---|
-| Generated legal / patent / web / finance retrieval | local proxy solved | `synthdomains-v1` held-out task-candidate eval is 160/160 after Lap 4; still needs a closer Context-1 synthetic-domain adapter with tool trajectories. |
-| Localdocs regression | local proxy solved | Lap 4 mixed replay restored `localdocs-v0` task-candidate eval to 12/12 after Lap 3 catastrophic forgetting. |
-| Seal-0 / LongSeal | planned | Requires dataset adapter and static-corpus scoring. |
-| FRAMES | planned | Requires Wikipedia/Serper-style retrieval adapter or static snapshot. |
-| BrowseComp-style tasks | planned | Requires reproducible static corpus, not live web drift. |
+| Generated legal / patent / web / finance retrieval | planned full-scale | Chroma recipe uses web, SEC/finance, patents/legal, and Epstein/email task generation with verification, distractors, and chained hops. Local `synthdomains-v1` is now only smoke/regression. |
+| Public LongSeal | planned first adapter | Fixed-corpus 512-token chunking makes it the best first comparable public suite. |
+| Public Seal-0 | planned | Requires positive URL dataset and browsing/scraping/static snapshot adapter. |
+| Public FRAMES | planned | Requires Wikipedia/Serper-style retrieval adapter or static Wikipedia snapshot, plus positive URL coverage filtering. |
+| Public HotpotQA | planned sanity suite | Simpler benchmark expected to saturate; useful for harness validation, not sufficient for parity. |
+| BrowseComp+ | access TBD | Needs reproducible static corpus/source access; live web BrowseComp is not comparable. |
 <!-- metrics-progress:end -->
 
 ## Quick start
