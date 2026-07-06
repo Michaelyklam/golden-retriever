@@ -20,6 +20,7 @@ dev = [
 golden-retriever = "golden_retriever.harness:main"
 golden-retriever-validate = "golden_retriever.dataset:main"
 golden-retriever-model-eval = "golden_retriever.model_eval:main"
+golden-retriever-generate = "golden_retriever.synthetic:main"
 
 [build-system]
 requires = ["hatchling"]

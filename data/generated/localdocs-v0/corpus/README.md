@@ -66,17 +66,6 @@ Validate a JSONL retrieval-task dataset:
 golden-retriever-validate data/seed/tasks.jsonl --corpus-root docs
 ```
 
-Generate deterministic local-doc retrieval tasks:
-
-```bash
-golden-retriever-generate \
-  --corpus-root data/generated/localdocs-v0/corpus \
-  --output data/generated/localdocs-v0/tasks.jsonl \
-  --limit 20 \
-  --distractors 3 \
-  --domain localdocs
-```
-
 Run the current base-model closed-corpus eval, assuming a vLLM server is listening on `:8000`:
 
 ```bash
