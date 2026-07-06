@@ -66,6 +66,18 @@ Validate a JSONL retrieval-task dataset:
 golden-retriever-validate data/seed/tasks.jsonl --corpus-root docs
 ```
 
+Run the current base-model closed-corpus eval, assuming a vLLM server is listening on `:8000`:
+
+```bash
+golden-retriever-model-eval \
+  --dataset data/base_smoke/tasks.jsonl \
+  --corpus-root data/base_smoke/corpus \
+  --model openbmb/MiniCPM5-1B \
+  --base-url http://127.0.0.1:8000/v1 \
+  --max-tokens 2048 \
+  --output results/base-minicpm5/base-smoke-closed-corpus.json
+```
+
 Re-run the MiniCPM5-1B benchmark:
 
 ```bash
