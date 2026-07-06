@@ -92,3 +92,13 @@ Adds the first concrete Pi-compatible observe/infer/act substrate:
 - `harness.py` now routes local retrieval through the same trajectory/tool-runner layer instead of bypassing it.
 
 This is still deterministic/local. It intentionally does not yet call Pi or a model; it creates the stable state/tool contract we can wire into Pi and benchmark adapters next.
+
+### Slice 3 — scripted inference loop
+
+Adds the first backend-agnostic agent loop:
+
+- `inference.py` defines the `InferenceBackend` protocol for Pi/model backends.
+- `ScriptedBackend` gives deterministic fixture rollouts for tests and benchmark adapter development.
+- `run_agent_loop(...)` runs observe → infer → act over the local Context-1 tool runner, records the initial query observation, executes tool calls, stops on final document IDs, and records max-turn termination.
+
+This closes the first deterministic harness layer: benchmark adapters can now run against the same trajectory/tool substrate that later Pi and model backends will use.
